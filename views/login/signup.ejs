@@ -5,10 +5,10 @@
         <% if (!Object.prototype.hasOwnProperty.call(body,'firstname')) { %>
         <div class="form-group row">
           <div class="col-4">
-            <label class="col-form-label" for="first-name">First Name</Label>
+            <label class="col-form-label" for="firstname">First Name</Label>
           </div>
           <div class="col-6">
-            <input id="first-name" name="firstname" type="text" class="form-control"  placeholder="First name" value="<%= body.firstname %>">
+            <input id="firstname" name="firstname" type="text" class="form-control"  placeholder="First name" value="<%= body.firstname %>" required>
           </div>
         </div>
         <% } else { %>
@@ -17,17 +17,17 @@
             <label class="col-form-label" for="first-name">First Name</Label>
           </div>
           <div class="col-6">
-            <input id="first-name" name="firstname" type="text" class="form-control form-control-success"  placeholder="First name" value="<%= body.firstname %>">
+            <input id="firstname" name="firstname" type="text" class="form-control form-control-success"  placeholder="First name" value="<%= body.firstname %>" required>
           </div>
         </div>
         <% } %>
       <% } else { %>
         <div class="form-group row has-danger">
           <div class="col-4">
-            <label class="col-form-label" for="first-name">First Name</Label>
+            <label class="col-form-label" for="firstname">First Name</Label>
           </div>
           <div class="col-6">
-            <input id="first-name" name="firstname" type="text" class="form-control  form-control-danger"  placeholder="First name">
+            <input id="firstname" name="firstname" type="text" class="form-control  form-control-danger"  placeholder="First name" required>
           </div>
         </div>
       <% } %>
@@ -40,7 +40,7 @@
             <label class="col-form-label" for="last-name">Last Name</Label>
           </div>
           <div class="col-6">
-            <input id="last-name" name="lastname" type="text" class="form-control"  placeholder="Last name" value="<%= body.lastname %>">
+            <input id="lastname" name="lastname" type="text" class="form-control"  placeholder="Last name" value="<%= body.lastname %>" required>
           </div>
         </div>
         <% } else { %>
@@ -49,7 +49,7 @@
             <label class="col-form-label" for="last-name">Last Name</Label>
           </div>
           <div class="col-6">
-            <input id="last-name" name="lastname" type="text" class="form-control form-control-success"  placeholder="Last name" value="<%= body.lastname %>">
+            <input id="lastname" name="lastname" type="text" class="form-control form-control-success"  placeholder="Last name" value="<%= body.lastname %>" required>
           </div>
         </div>
         <% } %>
@@ -59,7 +59,7 @@
             <label class="col-form-label" for="last-name">Last Name</Label>
           </div>
           <div class="col-6">
-            <input id="last-name" name="lastname" type="text" class="form-control form-control-danger"  placeholder="Last name">
+            <input id="lastname" name="lastname" type="text" class="form-control form-control-danger"  placeholder="Last name" required>
           </div>
         </div>
       <% } %>
@@ -72,7 +72,7 @@
             <label class="col-form-label" for="user-name">Username</Label>
           </div>
           <div class="col-6">
-            <input id="user-name" name="username" type="text" class="form-control"  placeholder="Username" value="<%= body.username %>">
+            <input id="username" name="username" type="text" class="form-control"  placeholder="Username" value="<%= body.username %>" required>
           </div>
         </div>
         <% } else { %>
@@ -81,7 +81,7 @@
               <label class="col-form-label" for="user-name">Username</Label>
             </div>
             <div class="col-6">
-              <input id="user-name" name="username" type="text" class="form-control form-control-success"  placeholder="Username" value="<%= body.username %>">
+              <input id="username" name="username" type="text" class="form-control form-control-success"  placeholder="Username" value="<%= body.username %>" required>
             </div>
           </div>
         <% } %>
@@ -91,7 +91,7 @@
             <label class="col-form-label" for="user-name">Username</Label>
           </div>
           <div class="col-6">
-            <input id="user-name" name="username" type="text" class="form-control form-control-danger"  placeholder="Username" value="<%= body.username %>">
+            <input id="username" name="username" type="text" class="form-control form-control-danger"  placeholder="Username" value="<%= body.username %>" required>
           </div>
         </div>
       <% } %>
@@ -104,7 +104,7 @@
             <label class="col-form-label" for="email">Email</Label>
           </div>
           <div class="col-6">
-            <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" value="<%= body.email %>">
+            <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" value="<%= body.email %>" required>
           </div>
         </div>
         <% } else { %>
@@ -113,7 +113,7 @@
             <label class="col-form-label" for="email">Email</Label>
           </div>
           <div class="col-6">
-            <input id="email" name="email" type="email" class="form-control form-control-success" placeholder="you@example.com" value="<%= body.email %>">
+            <input id="email" name="email" type="email" class="form-control form-control-success" placeholder="you@example.com" value="<%= body.email %>" required>
           </div>
         </div>
         <% } %>
@@ -123,7 +123,7 @@
             <label class="col-form-label" for="email">Email</Label>
           </div>
           <div class="col-6">
-            <input id="email" name="email" type="email" class="form-control form-control-danger" placeholder="you@example.com" >
+            <input id="email" name="email" type="email" class="form-control form-control-danger" placeholder="you@example.com" required>
           </div>
         </div>
       <% } %>
@@ -136,7 +136,7 @@
             <label class="col-form-label" for="password">Password</Label>
           </div>
           <div class="col-6">
-            <input id="password" name="password" type="password" class="form-control" placeholder="Password" value="<%= body.password %>">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password" value="<%= body.password %>" required>
           </div>
         </div>
         <% } else { %>
@@ -145,7 +145,7 @@
             <label class="col-form-label" for="password">Password</Label>
           </div>
           <div class="col-6">
-            <input id="password" name="password" type="password" class="form-control form-control-success" placeholder="Password" value="<%= body.password %>">
+            <input id="password" name="password" type="password" class="form-control form-control-success" placeholder="Password" value="<%= body.password %>" required>
           </div>
         </div>
         <% } %>
@@ -155,7 +155,7 @@
             <label class="col-form-label" for="password">Password</Label>
           </div>
           <div class="col-6">
-            <input id="password" name="password" type="password" class="form-control form-control-danger" placeholder="Password">
+            <input id="password" name="password" type="password" class="form-control form-control-danger" placeholder="Password" required>
           </div>
         </div>
       <% } %>

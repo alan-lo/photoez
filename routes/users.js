@@ -16,17 +16,11 @@ const loginRoutes = function(passport){
   }
 
   router.get('/', function(req, res, next) {
-      res.send('respond with a resource');
+    res.send('respond with a resource');
   });
 
   router.get('/sign-in', function(req, res, next) {
-    // console.log(req.flash('loginMessage'));
-    console.log(req.error);
-    if (req.flash('error').length == 0){
-      res.render('login/login', {title: 'PhotoEz'});
-    }else{
-      res.render('login/login', {title: 'PhotoEz'});
-    }
+    res.render('login/login', {title: 'PhotoEz'});
   });
 
   router.post('/sign-in', passport.authenticate('local', {
