@@ -24,19 +24,21 @@ function failValidation(node){
 }
 
 $(document).ready(function() {
-  $('#username, #password, #email, #firstname, #lastname').on('keyup', function() {
-    if ($(this).val()) {
-      if (this.id=='email'){
-        if (validateEmail($(this).val())){
-          passValidation(this);
+  $('#username, #password, #email, #firstname, #lastname').on('keyup', function(e) {
+    if (e.which !=9){
+      if ($(this).val()) {
+        if (this.id=='email'){
+          if (validateEmail($(this).val())){
+            passValidation(this);
+          }else{
+            failValidation(this);
+          }
         }else{
-          failValidation(this);
+            passValidation(this);
         }
-      }else{
-          passValidation(this);
+      } else{
+        failValidation(this);
       }
-    } else{
-      failValidation(this);
     }
   })
 });
