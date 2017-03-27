@@ -1,0 +1,36 @@
+{
+  "name": "photoez",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "debug": "nodemon --inspect ./bin/www",
+    "s": "sequelize"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "~1.16.0",
+    "bootstrap": "^4.0.0-alpha.6",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "ejs": "~2.5.5",
+    "express": "~4.14.1",
+    "express-session": "^1.15.1",
+    "express-validator": "^3.1.2",
+    "method-override": "^2.3.7",
+    "morgan": "~1.7.0",
+    "node-sass-middleware": "0.9.8",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.2",
+    "sequelize-cli": "^2.6.0",
+    "serve-favicon": "~2.3.2"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "nodemon": "^1.11.0"
+  }
+}

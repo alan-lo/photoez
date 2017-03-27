@@ -1,0 +1,178 @@
+<form method="post" action="/users/register">
+  <div class="row">
+    <div class="col-12">
+      <% if (!errors.hasOwnProperty('firstname')) { %>
+        <% if (!Object.prototype.hasOwnProperty.call(body,'firstname')) { %>
+        <div class="form-group row">
+          <div class="col-4">
+            <label class="col-form-label" for="first-name">First Name</Label>
+          </div>
+          <div class="col-6">
+            <input id="first-name" name="firstname" type="text" class="form-control"  placeholder="First name" value="<%= body.firstname %>">
+          </div>
+        </div>
+        <% } else { %>
+        <div class="form-group row has-success">
+          <div class="col-4">
+            <label class="col-form-label" for="first-name">First Name</Label>
+          </div>
+          <div class="col-6">
+            <input id="first-name" name="firstname" type="text" class="form-control form-control-success"  placeholder="First name" value="<%= body.firstname %>">
+          </div>
+        </div>
+        <% } %>
+      <% } else { %>
+        <div class="form-group row has-danger">
+          <div class="col-4">
+            <label class="col-form-label" for="first-name">First Name</Label>
+          </div>
+          <div class="col-6">
+            <input id="first-name" name="firstname" type="text" class="form-control  form-control-danger"  placeholder="First name">
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <div class="col-12">
+      <% if (!errors.hasOwnProperty('lastname')) { %>
+        <% if (!Object.prototype.hasOwnProperty.call(body,'lastname')) { %>
+        <div class="form-group row">
+          <div class="col-4">
+            <label class="col-form-label" for="last-name">Last Name</Label>
+          </div>
+          <div class="col-6">
+            <input id="last-name" name="lastname" type="text" class="form-control"  placeholder="Last name" value="<%= body.lastname %>">
+          </div>
+        </div>
+        <% } else { %>
+        <div class="form-group row has-success">
+          <div class="col-4">
+            <label class="col-form-label" for="last-name">Last Name</Label>
+          </div>
+          <div class="col-6">
+            <input id="last-name" name="lastname" type="text" class="form-control form-control-success"  placeholder="Last name" value="<%= body.lastname %>">
+          </div>
+        </div>
+        <% } %>
+      <% } else { %>
+        <div class="form-group row has-danger">
+          <div class="col-4">
+            <label class="col-form-label" for="last-name">Last Name</Label>
+          </div>
+          <div class="col-6">
+            <input id="last-name" name="lastname" type="text" class="form-control form-control-danger"  placeholder="Last name">
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <div class="col-12">
+      <% if (!errors.hasOwnProperty('username')) { %>
+        <% if (!Object.prototype.hasOwnProperty.call(body,'username')) { %>
+        <div class="form-group row">
+          <div class="col-4">
+            <label class="col-form-label" for="user-name">Username</Label>
+          </div>
+          <div class="col-6">
+            <input id="user-name" name="username" type="text" class="form-control"  placeholder="Username" value="<%= body.username %>">
+          </div>
+        </div>
+        <% } else { %>
+          <div class="form-group row has-success">
+            <div class="col-4">
+              <label class="col-form-label" for="user-name">Username</Label>
+            </div>
+            <div class="col-6">
+              <input id="user-name" name="username" type="text" class="form-control form-control-success"  placeholder="Username" value="<%= body.username %>">
+            </div>
+          </div>
+        <% } %>
+      <% } else { %>
+        <div class="form-group row has-danger">
+          <div class="col-4">
+            <label class="col-form-label" for="user-name">Username</Label>
+          </div>
+          <div class="col-6">
+            <input id="user-name" name="username" type="text" class="form-control form-control-danger"  placeholder="Username" value="<%= body.username %>">
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <div class="col-12">
+      <% if (!errors.hasOwnProperty('email')) { %>
+        <% if (!Object.prototype.hasOwnProperty.call(body,'email')) { %>
+        <div class="form-group row">
+          <div class="col-4">
+            <label class="col-form-label" for="email">Email</Label>
+          </div>
+          <div class="col-6">
+            <input id="email" name="email" type="email" class="form-control" placeholder="you@example.com" value="<%= body.email %>">
+          </div>
+        </div>
+        <% } else { %>
+        <div class="form-group row has-success">
+          <div class="col-4">
+            <label class="col-form-label" for="email">Email</Label>
+          </div>
+          <div class="col-6">
+            <input id="email" name="email" type="email" class="form-control form-control-success" placeholder="you@example.com" value="<%= body.email %>">
+          </div>
+        </div>
+        <% } %>
+      <% } else { %>
+        <div class="form-group row has-danger">
+          <div class="col-4">
+            <label class="col-form-label" for="email">Email</Label>
+          </div>
+          <div class="col-6">
+            <input id="email" name="email" type="email" class="form-control form-control-danger" placeholder="you@example.com" >
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <div class="col-12">
+      <% if (!errors.hasOwnProperty('password')) {%>
+        <% if (!Object.prototype.hasOwnProperty.call(body,'password')) { %>
+        <div class="form-group row">
+          <div class="col-4">
+            <label class="col-form-label" for="password">Password</Label>
+          </div>
+          <div class="col-6">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password" value="<%= body.password %>">
+          </div>
+        </div>
+        <% } else { %>
+        <div class="form-group row has-success">
+          <div class="col-4">
+            <label class="col-form-label" for="password">Password</Label>
+          </div>
+          <div class="col-6">
+            <input id="password" name="password" type="password" class="form-control form-control-success" placeholder="Password" value="<%= body.password %>">
+          </div>
+        </div>
+        <% } %>
+      <% } else { %>
+        <div class="form-group row has-danger">
+          <div class="col-4">
+            <label class="col-form-label" for="password">Password</Label>
+          </div>
+          <div class="col-6">
+            <input id="password" name="password" type="password" class="form-control form-control-danger" placeholder="Password">
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <div class="col-12">
+      <div class="form-group row">
+        <div class="col-12">
+        Have an account? <a href="/users/sign-in">Login</a> here
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group row">
+        <div class="col-4">
+          <button type="submit" class="btn btn-primary">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
