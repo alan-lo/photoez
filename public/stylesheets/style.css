@@ -6040,9 +6040,36 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   background-color: #939393; }
 
 #main {
-  margin-top: 10vh;
-  border: 1px dotted white;
-  padding: 20px; }
+  border: 5px dotted #939393;
+  padding: 35px; }
+
+#main-b {
+  margin-top: 25px; }
+
+.lens-outer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 10px solid #4E4E4E;
+  overflow: hidden; }
+
+.lens-inner {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 10px solid #4E4E4E;
+  margin: -125px 0px 0px -125px; }
+
+.photo-frame {
+  border: 10px solid #4E4E4E;
+  margin: 20px;
+  padding: 20px;
+  margin: 5vh auto; }
 
 .tab-content {
   display: none; }

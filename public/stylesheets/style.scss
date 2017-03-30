@@ -90,9 +90,43 @@ $medium-gray: #4E4E4E;
 }
 
 #main{
-  margin-top: 10vh;
-  border: 1px dotted white;
+  border: 5px dotted $light-gray;
+  padding: 35px;
+}
+
+#main-b{
+  margin-top: 25px;
+}
+$lens-width: 300px;
+$lens-height: 300px;
+$lens-l-margin: -($lens-width - 50px) /2 ;
+
+.lens-outer{
+  position: relative;
+  width:$lens-width;
+  height:$lens-height;
+  border-radius: 50%;
+  border: 10px solid $medium-gray;
+  overflow: hidden;
+}
+
+.lens-inner{
+  overflow: hidden;
+  position: absolute;
+  top:50%;
+  left:50%;
+  width: $lens-width - 50px;
+  height:$lens-height - 50px;
+  border-radius: 50%;
+  border: 10px solid $medium-gray;
+  margin: $lens-l-margin 0px 0px $lens-l-margin;
+}
+
+.photo-frame{
+  border: 10px solid $medium-gray;
+  margin: 20px;
   padding: 20px;
+  margin: 5vh auto;
 }
 
 .tab-content{
