@@ -20,7 +20,7 @@ const loginRoutes = function(passport){
   });
 
   router.get('/sign-in', function(req, res, next) {
-    res.render('login/login', {title: 'PhotoEz'});
+    res.render('index', {title: 'PhotoEz', body:{}, errors:{}});
   });
 
   router.post('/sign-in', passport.authenticate('local', {

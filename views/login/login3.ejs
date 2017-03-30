@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+  <div id="login-container" class="container">
+    <h1 class="glow"><%= title %></h1>
+    <div><em>Solution for organizing your personal photo</em></div>
+    <form method="post" action="/users/sign-in">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group ">
+            <input id="username" name="username" type="text" class="form-control" placeholder="Username" required>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+          </div>
+        </div>
+        <% if (error) { %>
+        <div class="col-12">
+          <div class="alert alert-danger" role="alert">
+            <%= error %>
+          </div>
+        </div>
+        <% } %>
+        <div class="col-12">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+            <a href="/users/forgot">Forgot Password ?</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <%- include('../partials/footer.ejs') %>
