@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     console.log(req.user.lastName);
 
 
-    res.render('posts/post', {title: 'PhotoEz'});
+    res.render('posts/post');
   } else {
     // not logged in
     res.redirect('/');

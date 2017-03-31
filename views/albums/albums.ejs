@@ -1,7 +1,22 @@
 <%- include('../partials/header.ejs') %>
-
-<h1>Albums</h1>
-
-
-
+<div class="photo-frame container">
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#create-album-modal">Create Album</button>
+    </div>
+  </div>
+  <div id="main" class="container">
+  <div id="albums" class="row">
+  <% albums.forEach(function(album) { %>
+    <div class="col-md-4">
+    <div class="folder glow">
+    <%= album.name %>
+    <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+    </div>
+    </div>
+  <% }) %>
+  </div>
+</div>
+</div>
+<%- include('./album-modal.ejs') %>
 <%- include('../partials/footer.ejs') %>

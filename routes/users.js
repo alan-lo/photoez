@@ -4,9 +4,7 @@ const {User} = require('../models/index');
 const bcrypt = require('bcryptjs');
 /* GET users listing. */
 
-
 const loginRoutes = function(passport){
-
   function loggedIn(req, res, next){
     if (req.user){
       next();
@@ -20,7 +18,7 @@ const loginRoutes = function(passport){
   });
 
   router.get('/sign-in', function(req, res, next) {
-    res.render('index', {title: 'PhotoEz', body:{}, errors:{}});
+    res.render('index', {body:{}, errors:{}});
   });
 
   router.post('/sign-in', passport.authenticate('local', {
@@ -30,7 +28,7 @@ const loginRoutes = function(passport){
   }))
 
   router.get('/register', function(req, res, next) {
-      res.render('index', {title: 'PhotoEz', body:{}, errors:{}});
+      res.render('index', {body:{}, errors:{}});
   });
 
   router.post('/register', function(req, res, next) {
@@ -56,7 +54,7 @@ const loginRoutes = function(passport){
         // do something with the validation result
         if (!result.isEmpty()){
           //  res.send(req.body);
-           res.render('index' , { title: 'PhotoEz' , body: req.body, errors: result.mapped()})
+           res.render('index' , {body: req.body, errors: result.mapped()})
         }else{
 
           User.findOne({
@@ -83,7 +81,7 @@ const loginRoutes = function(passport){
                   })
               } else {
                   console.log("user exists");
-                  res.render('index', {title: 'PhotoEz',errors: 'user exists'})
+                  res.render('index', {errors: 'user exists'})
 
               }
           })

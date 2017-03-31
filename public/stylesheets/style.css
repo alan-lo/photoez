@@ -6084,4 +6084,11 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 footer {
   text-align: right; }
 
+#albums > div.folder:not(:last-child) {
+  margin-right: 20px; }
+
+.folder {
+  font-size: 30px;
+  color: #4E4E4E; }
+
 /*# sourceMappingURL=style.css.map */

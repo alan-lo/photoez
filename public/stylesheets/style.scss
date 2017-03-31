@@ -134,13 +134,27 @@ $lens-l-margin: -($lens-width - 50px) /2 ;
 }
 
 .glow, .title, .sub-title{
-   text-shadow: 0 0 15px white;
+  text-shadow: 0 0 15px white;
  }
 
- .title, .sub-title{
-   margin-bottom: 20px;
- }
+.title, .sub-title{
+  margin-bottom: 20px;
+}
 
  footer{
    text-align: right;
+ }
+
+ #albums{
+  //  display: flex;
+  //  justify-content: center;
+ }
+
+ #albums > div.folder:not(:last-child){
+   margin-right: 20px;
+ }
+
+ .folder{
+   font-size: 30px;
+   color: $medium-gray;
  }
