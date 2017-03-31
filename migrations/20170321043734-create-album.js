@@ -1,24 +1,15 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Posts', {
+    return queryInterface.createTable('Albums', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      body: {
-        type: Sequelize.TEXT,
-        validate: {
-          notEmpty: true
-        }
-      },
-      title: {
-        type: Sequelize.STRING,
-        validate: {
-          notEmpty: true
-        }
+      name: {
+        type: Sequelize.STRING
       },
       UserId: {
         type: Sequelize.INTEGER,
@@ -28,16 +19,7 @@ module.exports = {
         },
         onDelete: 'cascade',
         onUpdate: 'cascade'
-      } ,
-      AlbumId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Albums',
-          key: 'id'
-        },
-        onDelete: 'cascade',
-        onUpdate: 'cascade'
-      } ,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -49,6 +31,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Posts');
+    return queryInterface.dropTable('Albums');
   }
 };

@@ -1,6 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Like = sequelize.define('Like', {
+  var Album = sequelize.define('Album', {
+    name: DataTypes.STRING,
     UserId: DataTypes.INTEGER,
     PostId: DataTypes.INTEGER,
     createdAt: {
@@ -12,10 +13,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Like.belongsTo(models.User)
-        Like.belongsTo(models.Post)
+        Album.belongsTo(models.User);
+        Album.hasMany(models.Post);
       }
     }
   });
-  return Like;
+  return Album;
 };

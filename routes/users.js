@@ -24,7 +24,7 @@ const loginRoutes = function(passport){
   });
 
   router.post('/sign-in', passport.authenticate('local', {
-    successRedirect: '/posts',
+    successRedirect: '/albums',
     failureRedirect: '/users/sign-in',
     failureFlash: true,
   }))

@@ -6,6 +6,11 @@ $navbar-light-color: white;
 $light-gray: #939393;
 $medium-gray: #4E4E4E;
 
+$input-padding-x: .5rem;
+$input-padding-y: .35rem;
+$input-line-height: 1.25;
+$font-size-base: 0.9rem;
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -52,12 +57,6 @@ $medium-gray: #4E4E4E;
   100% { opacity: 1; }
 }
 
-// $navbar-light-hover-color:          rgba($black,.7) !default;
-// $navbar-light-active-color:         rgba($black,.9) !default;
-// $navbar-light-disabled-color:       rgba($black,.3) !default;
-// $navbar-light-toggler-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"), "#", "%23") !default;
-// $navbar-light-toggler-border:       rgba($black,.1) !default;
-
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
 #login-container{
@@ -79,9 +78,6 @@ $medium-gray: #4E4E4E;
 #sign-in-btn, #login-btn{
   text-align: center;
   padding: 15px;
-}
-
-#login-btn{
   background-color: $medium-gray;
 }
 

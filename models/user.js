@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     profile: DataTypes.TEXT,
     password: DataTypes.STRING,
     resetPasswordToken: DataTypes.STRING,
-    resetPasswordExpires: DataTypes.DATE,    
+    resetPasswordExpires: DataTypes.DATE,
     isAdmin: {
       type: DataTypes.BOOLEAN
     },
@@ -27,6 +27,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
+        User.hasMany(models.Album);
         User.hasMany(models.Post);
         User.hasMany(models.Comment);
         User.belongsToMany(models.Post, { through: 'Follow'})

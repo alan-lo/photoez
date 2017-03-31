@@ -3,6 +3,8 @@ module.exports = function(sequelize, DataTypes) {
   var Post = sequelize.define('Post', {
     body: DataTypes.TEXT,
     title: DataTypes.STRING,
+    UserId: DataTypes.INTEGER,
+    AlbumId: DataTypes.INTEGER,
     createdAt: {
       type: DataTypes.DATE
     },
@@ -12,6 +14,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
+        Post.belongsTo(models.Album);
         Post.belongsTo(models.User);
         Post.hasMany(models.Comment);
         Post.belongsToMany(models.User, { through: 'Follow', foreignKey: 'userId' })

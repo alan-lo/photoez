@@ -8,6 +8,7 @@ module.exports = {
       (value, index) => ({
         title: faker.lorem.words(3),
         body: faker.lorem.paragraphs(2),
+        AlbumId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       })

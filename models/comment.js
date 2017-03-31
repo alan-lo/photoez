@@ -2,6 +2,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Comment = sequelize.define('Comment', {
     body: DataTypes.TEXT,
+    UserId: DataTypes.TEXT,
+    PostId: DataTypes.TEXT,
     createdAt: {
       type: DataTypes.DATE
     },

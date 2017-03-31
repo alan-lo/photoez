@@ -1,8 +1,8 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Follow = sequelize.define('Follow', {
-    userId: DataTypes.INTEGER,
-    postId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER,
+    PostId: DataTypes.INTEGER,
     createdAt: {
       type: DataTypes.DATE
     },
