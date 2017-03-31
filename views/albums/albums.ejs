@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col">
       <button class="btn btn-primary" data-toggle="modal" data-target="#create-album-modal">Create Album</button>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#destroy-album-modal">Delete Album</button>
     </div>
   </div>
   <div id="main" class="container">
@@ -18,5 +19,21 @@
   </div>
 </div>
 </div>
-<%- include('./album-modal.ejs') %>
-<%- include('../partials/footer.ejs') %>
+
+<% let modalId = 'create-album-modal' %>
+<% let buttonText = 'Create' %>
+<% let modalTitle = 'Create an Album' %>
+<% let buttonId = 'create-album-btn'%>
+<% let inputId= 'album-name-create' %>
+
+<%- include('./album-modal.ejs', {modalId, buttonText, modalTitle, buttonId, inputId}) %>
+
+<% modalId = 'destroy-album-modal' %>
+<% buttonText = 'Delete' %>
+<% modalTitle = 'Delete an Album' %>
+<% buttonId = 'destroy-album-btn' %>
+<% inputId= 'album-name-destroy' %>
+
+<%- include('./album-modal.ejs', {modalId, buttonText, modalTitle, buttonId, inputId}) %>
+
+<% include('../partials/footer.ejs') %>

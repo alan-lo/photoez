@@ -49,8 +49,28 @@ router.post('/create', function(req, res, next) {
             }
         })
     } else {
-        // not logged in
-        res.redirect('/');
+      res.redirect('/');
+    }
+})
+
+router.post('/delete', function(req, res, next) {
+    const {name} = req.body
+    if (req.user) {
+        Album.findOne({
+            where: {
+                UserId: req.user.id,
+                name: name
+            }
+        }).then((album) => {
+            if (album) {
+                album.destroy();
+                res.send({success: true, redirect: true, redirectURL: "/albums"});
+            } else {
+                res.send({success: false, redirect:false, msg: "Album not found"});
+            }
+        })
+    } else {
+      res.redirect('/');
     }
 })
 
