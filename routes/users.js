@@ -22,7 +22,7 @@ const loginRoutes = function(passport){
   });
 
   router.post('/sign-in', passport.authenticate('local', {
-    successRedirect: '/albums',
+    successRedirect: '/dashboard',
     failureRedirect: '/users/sign-in',
     failureFlash: true,
   }))
@@ -76,7 +76,7 @@ const loginRoutes = function(passport){
 
                       passport.authenticate("local", {
                           failureRedirect: "/users/sign-in",
-                          successRedirect: "/posts"
+                          successRedirect: "/dashboard"
                       })(req, res, next)
                   })
               } else {
@@ -93,7 +93,6 @@ const loginRoutes = function(passport){
     req.session.destroy();
     res.redirect("/");
   });
-
   return router;
 }
 

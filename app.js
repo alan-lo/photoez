@@ -15,6 +15,7 @@ const session  = require('express-session');
 //routes
 const index = require('./routes/index');
 const users = require('./routes/users');
+const dashboard = require('./routes/dashboard');
 const posts = require('./routes/posts');
 const albums = require('./routes/albums');
 const signUp = require('./routes/signup');
@@ -105,11 +106,20 @@ app.use(methodOverride(function (req, res) {
   }
 }))
 
+function loggedIn(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+}
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users(passport));
-app.use('/posts', posts);
-app.use('/albums', albums);
+app.use('/dashboard', loggedIn, dashboard);
+// app.use('/posts', posts);
+//app.use('/albums', albums);
 // app.use('/sign-up', signUp);
 
 // catch 404 and forward to error handler
@@ -118,9 +128,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-
-
 
 
 // error handler

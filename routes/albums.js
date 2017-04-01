@@ -4,7 +4,6 @@ const {User, Album, Post} = require('../models/index');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  if (req.user) {
     console.log(req.user.id);
     console.log(req.user.userName);
     console.log(req.user.email);
@@ -23,14 +22,10 @@ router.get('/', function(req, res, next) {
         }).then((albums) => {
             res.render('albums/albums', {albums, user: req.user})
         });
-    } else {
-        res.redirect('/');
-    }
 });
 
 router.post('/create', function(req, res, next) {
     const {name} = req.body
-    if (req.user) {
         Album.findOne({
             where: {
                 UserId: req.user.id,
@@ -48,14 +43,10 @@ router.post('/create', function(req, res, next) {
                 })
             }
         })
-    } else {
-      res.redirect('/');
-    }
 })
 
 router.post('/delete', function(req, res, next) {
     const {name} = req.body
-    if (req.user) {
         Album.findOne({
             where: {
                 UserId: req.user.id,
@@ -68,10 +59,7 @@ router.post('/delete', function(req, res, next) {
             } else {
                 res.send({success: false, redirect:false, msg: "Album not found"});
             }
-        })
-    } else {
-      res.redirect('/');
-    }
+    })
 })
 
 module.exports = router;
