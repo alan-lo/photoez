@@ -93,6 +93,22 @@ const loginRoutes = function(passport){
     req.session.destroy();
     res.redirect("/");
   });
+
+  router.get('/:id', loggedIn,function(req,res,next){
+    console.log('hello world');
+    User.findOne({
+        where: {
+            id: req.user.id
+          }
+    }).then((user)=>{
+      if (user){
+        console.log('what is happening');
+        res.render('profile/profile', {user: user} );
+      }else{
+        res.redirect('/dashboard');
+      }
+    })
+  })
   return router;
 }
 

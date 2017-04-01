@@ -6062,6 +6062,31 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   border: 10px solid #4E4E4E;
   margin: -125px 0px 0px -125px; }
 
+#dashboard-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px; }
+
+.dashboard-profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8.5rem;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 10px solid #4E4E4E;
+  overflow: hidden; }
+
+.lens-inner.flower {
+  background-image: url("/images/purple-flower.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 .photo-frame {
   margin: 5vh auto; }
 
@@ -6071,7 +6096,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .tab-content.active {
   display: block; }
 
-.glow, .title, .sub-title {
+.glow, .title, .sub-title, #dashboard-profile, #profile {
   text-shadow: 0 0 15px white; }
 
 .title, .sub-title {
@@ -6167,6 +6192,20 @@ footer {
   -moz-animation: pulse 2s infinite;
   -ms-animation: pulse 2s infinite;
   animation: pulse 2s infinite; }
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+/*styles for profile page*/
+#profile {
+  margin-top: 10vh; }
+
+.profile-info {
+  margin-bottom: 10px; }
 
 a {
   color: inherit;

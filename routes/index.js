@@ -6,9 +6,9 @@ const router = express.Router();
 /* GET home page / login page */
 router.get('/', function(req, res, next) {
   if (req.user){
-    res.redirect('/features');
+    res.redirect('/dashboard');
   }else{
-    res.render('index', { title: 'PhotoEz', body:{}, errors: {}});
+    res.render('index', {body:{}, errors: {}});
   }
 });
 

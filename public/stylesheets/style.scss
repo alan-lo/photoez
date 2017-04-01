@@ -92,11 +92,9 @@ $font-size-base: 0.9rem;
 #main-b{
   margin-top: 25px;
 }
-$lens-width: 300px;
-$lens-height: 300px;
-$lens-l-margin: -($lens-width - 50px) /2 ;
 
-.lens-outer{
+
+@mixin circle($lens-width, $lens-height, $color){
   position: relative;
   width:$lens-width;
   height:$lens-height;
@@ -105,7 +103,8 @@ $lens-l-margin: -($lens-width - 50px) /2 ;
   overflow: hidden;
 }
 
-.lens-inner{
+@mixin inner-circle($lens-width, $lens-height, $color){
+  $lens-l-margin: -($lens-width - 50px) /2;
   overflow: hidden;
   position: absolute;
   top:50%;
@@ -115,6 +114,38 @@ $lens-l-margin: -($lens-width - 50px) /2 ;
   border-radius: 50%;
   border: 10px solid $medium-gray;
   margin: $lens-l-margin 0px 0px $lens-l-margin;
+}
+
+.lens-outer{
+  @include circle(300px, 300px, $medium-gray)
+}
+
+.lens-inner{
+  @include inner-circle(300px, 300px ,$medium-gray);
+}
+
+#dashboard-profile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.dashboard-profile-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8.5rem;
+  @include circle(200px, 200px, $medium-gray);
+}
+
+
+.lens-inner.flower{
+  background-image: url('/images/purple-flower.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .photo-frame{
@@ -129,7 +160,9 @@ $lens-l-margin: -($lens-width - 50px) /2 ;
   display:block;
 }
 
-.glow, .title, .sub-title{
+
+
+.glow, .title, .sub-title, #dashboard-profile, #profile{
   text-shadow: 0 0 15px white;
  }
 
@@ -221,7 +254,27 @@ $lens-l-margin: -($lens-width - 50px) /2 ;
   @include animation('pulse 2s infinite');
  }
 
- a {
+ .vertical-center{
+   min-height: 100%;
+   min-height: 100vh;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+
+/*styles for profile page*/
+#profile{
+ margin-top: 10vh;
+}
+
+.profile-info{
+  margin-bottom: 10px;
+}
+
+
+
+a {
   color: inherit;
   text-decoration: none; /* no underline */
 }

@@ -1,10 +1,51 @@
-<div class="container">
-<div class="row">
-
-  <div class="col-12">
-    Your profile
-    
+<%- include('../partials/header.ejs') %>
+<div id="profile" class="container">
+  <div class="row d-flex flex-row">
+    <div id="dashboard-profile" class="col-lg-6 d-flex flex-column justify-content-between">
+      <div class="dashboard-profile-pic">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+      <div>
+        <%= user.firstName%> <%= user.lastName %>
+      </div>
+      <div>
+          <a href="/dashboard"><button class="btn btn-primary">Go to Dashboard</button></a>
+      </div>
+    </div>
+    <div id="profile-info-container" class="col-lg-6">
+      <div class="row">
+        <div class="col-5 profile-info">
+          Username:
+        </div>
+        <div class="col-7 profile-info">
+          <%= user.userName %>
+        </div>
+        <div class="col-5 profile-info">
+           First Name:
+        </div>
+        <div class="col-7 profile-info">
+          <%= user.firstName %>
+        </div>
+        <div class="col-5 profile-info">
+           Last Name:
+        </div>
+        <div class="col-7 profile-info">
+          <%= user.lastName %>
+        </div>
+        <div class="col-5 profile-info">
+           Email:
+        </div>
+        <div class="col-7 profile-info">
+          <%= user.email %>
+        </div>
+        <div class="col-12 profile-info">
+           Profile:
+        </div>
+        <div class="col-12 profile-info">
+          <%= user.profile %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-</div>
+<%- include('../partials/footer.ejs') %>
