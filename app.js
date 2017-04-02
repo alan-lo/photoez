@@ -18,7 +18,8 @@ const users = require('./routes/users');
 const dashboard = require('./routes/dashboard');
 const posts = require('./routes/posts');
 const albums = require('./routes/albums');
-const signUp = require('./routes/signup');
+const uploads = require('./routes/upload');
+// const signUp = require('./routes/signup');
 
 const app = express();
 // view engine setup
@@ -122,7 +123,7 @@ app.use('/users', users(passport));
 app.use('/dashboard', loggedIn, dashboard);
 app.use('/albums', albums);
 app.use('/posts', posts);
-
+app.use('/uploads', uploads);
 // app.use('/sign-up', signUp);
 
 // catch 404 and forward to error handler

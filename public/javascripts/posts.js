@@ -1,3 +1,6 @@
+
+let init = false;
+
 $(document).ready(function() {
   $('.parent-container').magnificPopup({
     delegate: 'a',
@@ -14,4 +17,24 @@ $(document).ready(function() {
     $(this).children('.overlay-content').removeClass('active').fadeOut();
   })
 
+  $('a[data-target="#image-upload-modal"]').on('click',function(){
+    let modalBody = $('.modal-body')
+    if (!init){
+    $.post("/uploads/new",function(response, status){
+      let albumList = $('#album-list')
+
+        if (response.success){
+          if (response.init){
+            response.albums.forEach((album)=>{
+              albumList.append(`<option value="${album.name}">${album.name}</option>`);
+            });
+            init=true;
+          }
+        }else{
+          modalBody.append(`<div class="alert alert-danger">${response.msg}</div>`);
+        }
+      });
+    }
+
+  });
 });
