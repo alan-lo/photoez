@@ -6219,7 +6219,7 @@ footer {
   overflow: hidden;
   transition: all 0.8s; }
 
-.post > img:hover {
+.post img:hover {
   -moz-transform: scale(1.3);
   -webkit-transform: scale(1.3);
   transform: scale(1.3);

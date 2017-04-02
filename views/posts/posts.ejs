@@ -1,13 +1,13 @@
 <%- include('../partials/header.ejs') %>
 
 <div id="posts-container" class="container">
-  <div class="row">
-    <% posts.forEach(function(post) { %>
-    <div class="col-sm-4">
-      <div class="post">
-        <img class="img-fluid" src="<%= post.imageURL %>" alt="User Image">
+  <div class="row parent-container">
+      <% posts.forEach(function(post) { %>
+        <div class="col-sm-4">
+          <div class="post">
+          <a href="<%= post.imageURL %>"><img class="img-fluid" src="<%= post.imageURL %>" alt="User Image"></a>
+          </div>
       </div>
-    </div>
     <% }) %>
   </div>
   <div class="row">
