@@ -13,9 +13,6 @@ router.get('/', function(req, res, next) {
         }
       ]
       ,
-      where: {
-        UserId: req.user.id
-      },
       limit: pageLimit,
       offset: (req.query.page - 1) * pageLimit
     }).then((posts) => {

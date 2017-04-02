@@ -9,16 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       body: {
-        type: Sequelize.TEXT,
-        validate: {
-          notEmpty: true
-        }
+        type: Sequelize.TEXT
       },
       title: {
-        type: Sequelize.STRING,
-        validate: {
-          notEmpty: true
-        }
+        type: Sequelize.STRING
       },
       imageURL: {
         type: Sequelize.STRING,

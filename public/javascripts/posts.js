@@ -35,6 +35,10 @@ $(document).ready(function() {
         }
       });
     }
-
   });
+
+  $('#upload-form').on('submit',function(event){
+     let imageUploadModal = $('#image-upload-modal');
+      imageUploadModal.modal('hide');
+  })
 });

@@ -11,7 +11,8 @@ const authenticate = require('./config/authenticate')(passport);
 
 const flash    = require('connect-flash');
 const session  = require('express-session');
-
+const options = require('./config/cloudinary-config');
+const cloudinary = require('cloudinary');
 //routes
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -115,6 +116,13 @@ function loggedIn(req, res, next) {
     }
 }
 
+
+cloudinary.config({
+	      cloud_name: options.cloudinary.cloud_name,
+	      api_key: options.cloudinary.api_key,
+	      api_secret: options.cloudinary.api_secret
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 
@@ -123,7 +131,7 @@ app.use('/users', users(passport));
 app.use('/dashboard', loggedIn, dashboard);
 app.use('/albums', albums);
 app.use('/posts', posts);
-app.use('/uploads', uploads);
+app.use('/uploads', uploads(cloudinary));
 // app.use('/sign-up', signUp);
 
 // catch 404 and forward to error handler
