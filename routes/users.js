@@ -22,7 +22,7 @@ const loginRoutes = function(passport){
   });
 
   router.post('/sign-in', passport.authenticate('local', {
-    successRedirect: '/dashboard',
+    successRedirect: '/posts/?page=1',
     failureRedirect: '/users/sign-in',
     failureFlash: true,
   }))
@@ -73,7 +73,7 @@ const loginRoutes = function(passport){
 
                       passport.authenticate("local", {
                           failureRedirect: "/users/sign-in",
-                          successRedirect: "/dashboard"
+                          successRedirect: "/posts/?page=1"
                       })(req, res, next)
                   })
               } else {
@@ -92,14 +92,12 @@ const loginRoutes = function(passport){
   });
 
   router.get('/:id', loggedIn,function(req,res,next){
-    console.log('hello world');
     User.findOne({
         where: {
             id: req.user.id
           }
     }).then((user)=>{
       if (user){
-        console.log('what is happening');
         res.render('profile/profile', {user: user} );
       }else{
         res.redirect('/dashboard');

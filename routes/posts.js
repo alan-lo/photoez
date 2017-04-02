@@ -7,6 +7,12 @@ let pageLimit = 9;
 router.get('/', function(req, res, next) {
   if (req.user) {
     Post.findAndCountAll({
+      include: [
+        {
+          model: User
+        }
+      ]
+      ,
       where: {
         UserId: req.user.id
       },
@@ -17,7 +23,7 @@ router.get('/', function(req, res, next) {
         if (posts.rows.length < pageLimit){
           numPages = req.query.page;
         }
-
+        // res.send(posts.rows[0].User);
         res.render('posts/posts', {posts: posts.rows, currentPage: parseInt(req.query.page), pages:numPages, user: req.user})
     });
   } else {
