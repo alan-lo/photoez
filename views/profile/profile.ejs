@@ -2,11 +2,13 @@
 <div id="profile" class="container">
   <div class="row d-flex flex-row">
     <div id="dashboard-profile" class="col-lg-6 d-flex flex-column justify-content-between">
-      <div class="dashboard-profile-pic">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
-      <div>
-        <%= user.firstName%> <%= user.lastName %>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="dashboard-profile-pic">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+        <div>
+          <%= user.firstName%> <%= user.lastName %>
+        </div>
       </div>
       <div>
           <a href="/dashboard"><button class="btn btn-primary">Go to Dashboard</button></a>

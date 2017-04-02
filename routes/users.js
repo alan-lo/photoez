@@ -41,7 +41,6 @@ const loginRoutes = function(passport){
           password2
       } = req.body
 
-
       //validations
       req.checkBody('firstname', 'First name is required').notEmpty();
       req.checkBody('lastname', 'Last name is required').notEmpty();
@@ -51,9 +50,7 @@ const loginRoutes = function(passport){
       req.checkBody('password', 'Password is required').notEmpty();
 
       req.getValidationResult().then(function(result) {
-        // do something with the validation result
         if (!result.isEmpty()){
-          //  res.send(req.body);
            res.render('index' , {body: req.body, errors: result.mapped()})
         }else{
 

@@ -20,6 +20,12 @@ module.exports = {
           notEmpty: true
         }
       },
+      imageURL: {
+        type: Sequelize.STRING,
+        validate: {
+          notEmpty: true
+        }
+      },
       UserId: {
         type: Sequelize.INTEGER,
         references: {

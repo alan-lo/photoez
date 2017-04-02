@@ -118,8 +118,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users(passport));
 app.use('/dashboard', loggedIn, dashboard);
-// app.use('/posts', posts);
-//app.use('/albums', albums);
+app.use('/albums', albums);
+app.use('/posts', posts);
+
 // app.use('/sign-up', signUp);
 
 // catch 404 and forward to error handler
