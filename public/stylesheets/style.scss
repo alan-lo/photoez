@@ -1,7 +1,6 @@
 $btn-primary-bg:orange;
 $body-bg: #565656;
 $link-color: #4db0c9;
-$navbar-light-color: white;
 
 $light-gray: #939393;
 $medium-gray: #4E4E4E;
@@ -19,6 +18,11 @@ $pagination-active-border: $light-gray;
 $pagination-color: $light-gray;
 $pagination-border-color: $light-gray;
 $pagination-bg: $medium-gray;
+
+$navbar-light-color: $light-gray;
+$navbar-light-hover-color: white;
+$navbar-light-active-color: white;
+
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -182,7 +186,7 @@ a:focus, a:hover {
 
 
 
-.glow, .title, .sub-title, #dashboard-profile, #profile{
+.glow, .title, .sub-title, #dashboard-profile, #profile, .nav-link:hover{
   text-shadow: 0 0 15px white;
  }
 
