@@ -1,4 +1,5 @@
-<%- include('../partials/header.ejs') %>
+<% let uploadImage = false %>
+<%- include('../partials/header.ejs', {uploadImage}) %>
 <div id="profile" class="container">
   <div class="row d-flex flex-row">
     <div id="dashboard-profile" class="col-lg-6 d-flex flex-column justify-content-between">
@@ -6,12 +7,12 @@
         <div class="dashboard-profile-pic">
           <i class="fa fa-user" aria-hidden="true"></i>
         </div>
-        <div>
+        <div class="name">
           <%= user.firstName%> <%= user.lastName %>
         </div>
       </div>
       <div>
-          <a href="/dashboard"><button class="btn btn-primary">Go to Dashboard</button></a>
+          <a href="/dashboard"><button class="btn btn-primary">Dashboard</button></a>
       </div>
     </div>
     <div id="profile-info-container" class="col-lg-6">

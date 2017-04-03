@@ -20,7 +20,6 @@ router.get('/', function(req, res, next) {
         if (posts.rows.length < pageLimit){
           numPages = req.query.page;
         }
-        // res.send(posts.rows[0].User);
         res.render('posts/posts', {posts: posts.rows, currentPage: parseInt(req.query.page), pages:numPages, user: req.user})
     });
   } else {

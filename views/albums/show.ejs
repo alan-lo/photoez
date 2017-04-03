@@ -1,0 +1,32 @@
+
+<% let uploadImage = false %>
+<%- include('../partials/header.ejs', {uploadImage}) %>
+<div id="posts-container" class="container">
+  <div class="row">
+    <div class="col">
+      <div id="viewAlbums">
+        <span class="glow"><%= album.name %></span>
+      </div>
+    </div>
+  </div>
+  <div class="row parent-container">
+      <% posts.forEach(function(post) { %>
+        <div class="col-sm-4">
+          <div class="post">
+            <a href="<%= post.imageURL %>"><img class="img-fluid" src="<%= post.imageURL %>" alt="User Image"></a>
+            <div class="overlay-content">
+              <div>
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>
+              <div>
+                <i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;<%= user.firstName%>
+              </div>
+            </div>
+          </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('../upload/upload-modal.ejs') %>
+<%- include('../partials/footer.ejs') %>

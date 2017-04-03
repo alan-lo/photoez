@@ -1,4 +1,5 @@
-<%- include('../partials/header.ejs') %>
+<% let uploadImage = false %>
+<%- include('../partials/header.ejs', {uploadImage}) %>
 <div class="photo-frame container">
   <div class="row">
     <div class="col">
@@ -10,10 +11,11 @@
   <div id="albums" class="row">
   <% albums.forEach(function(album) { %>
     <div id="album" class="col-md-4">
-    <div class="folder glow">
+
+    <a href="/albums/<%= album.id %>"><div class="folder glow">
     <%= album.name %>
     <i class="fa fa-folder-open-o" aria-hidden="true"></i>
-    </div>
+    </div></a>
     </div>
   <% }) %>
   </div>

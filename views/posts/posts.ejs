@@ -1,6 +1,18 @@
-<%- include('../partials/header.ejs') %>
 
+<% let uploadImage = true %>
+<%- include('../partials/header.ejs', {uploadImage}) %>
 <div id="posts-container" class="container">
+  <div class="row">
+    <div class="col">
+      <div id="viewAlbums"><span class="glow">Your Albums</span>
+        <div id="myAlbums">
+          <div class="row">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row parent-container">
       <% posts.forEach(function(post) { %>
         <div class="col-sm-4">

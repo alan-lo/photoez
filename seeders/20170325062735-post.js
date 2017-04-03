@@ -3,7 +3,6 @@ const faker = require('faker');
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-
     const picPath = '/images/'
     let photos = ['cat.jpg',
                   'checkmated.jpg',
@@ -49,19 +48,6 @@ module.exports = {
         });
       }
     }
-    //
-    // let posts = Array.from(
-    //   {length:10},
-    //   (value, index) => ({
-    //     title: faker.lorem.words(3),
-    //     body: faker.lorem.paragraphs(2),
-    //     imageURL: '/images/purple-flower.jpg',
-    //     UserId: 1,
-    //     AlbumId: 1,
-    //     createdAt: new Date(),
-    //     updatedAt: new Date()
-    //   })
-    // )
   return queryInterface.bulkInsert('Posts', posts, {});
   },
 

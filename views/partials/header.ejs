@@ -39,12 +39,14 @@
               View Gallery
             </span></a>
           </li>
+          <% if (uploadImage){ %>
           <li>
             <a data-toggle="modal" data-target="#image-upload-modal"><span class="nav-link glow">
             <i class="fa fa-upload" aria-hidden="true"></i>
-              Upload an Image
+              Upload Image
             </span></a>
           </li>
+          <% } %>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">

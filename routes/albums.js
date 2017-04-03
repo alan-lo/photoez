@@ -16,9 +16,30 @@ router.get('/', function(req, res, next) {
       ['name', 'ASC']
     ]
   }).then((albums) => {
-        res.render('albums/albums', {albums, user: req.user})
+      res.render('albums/albums', {albums, user: req.user})
   });
 });
+
+router.get('/api/albums', function(req, res, next) {
+  Album.findAll({
+    include: [
+      {
+        model: User,
+        where: {
+          id: req.user.id
+        }
+      }
+    ],
+    order: [
+      ['name', 'ASC']
+    ]
+  }).then((albums) => {
+    res.send(albums);
+  });
+});
+
+
+
 
 router.post('/create', function(req, res, next) {
   const {name} = req.body
@@ -56,5 +77,30 @@ router.post('/delete', function(req, res, next) {
     }
   })
 })
+
+router.get('/:id', function(req, res, next) {
+  Album.findById( req.params.id ,
+    {
+      include: [
+      {
+        model: User
+      }, {
+        model: Post,
+        where: {
+          UserId: req.user.id
+        }
+      }
+    ],
+    where:{
+      UserId: req.user.id
+    }
+    ,
+    order: [
+      ['name', 'ASC']
+    ]
+  }).then((album) => {
+     res.render('albums/show.ejs', {album: album, posts:album.Posts, user: album.User})
+  });
+});
 
 module.exports = router;

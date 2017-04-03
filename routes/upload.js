@@ -53,31 +53,25 @@ const uploadRoutes = function(cloudinary){
 
   router.post('/new', function(req, res, next){
     if (req.user){
-        if (!setup){
-          Album.findAll({
-            include: [
-              {
-                model: User,
-                where: {
-                  id: req.user.id
-                }
-              }
-            ],
-            order: [
-              ['name', 'ASC']
-            ]
-          }).then((albums) => {
-            if (albums){
-              setup=true;
-              res.send({success:true, init:true,  redirect: false, albums});
-            }else{
-              res.send({success:false, msg: 'No albums'});
+      Album.findAll({
+        include: [
+          {
+            model: User,
+            where: {
+              id: req.user.id
             }
-          });
-        }else{
-          setup=false;
-          res.send({success:true, init:false,  redirect: false});
-        }
+          }
+        ],
+        order: [
+          ['name', 'ASC']
+        ]
+        }).then((albums) => {
+          if (albums){
+            res.send({success:true, init:true,  redirect: false, albums});
+          }else{
+            res.send({success:false, msg: 'No albums'});
+          }
+        });
       }else{
         res.redirect('/');
       }
