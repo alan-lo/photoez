@@ -1,6 +1,7 @@
 
-let init = false;
 let showAlbums = false;
+let getAlbums = false;
+let initAlbums = false;
 
 $(document).ready(function() {
 
@@ -23,15 +24,15 @@ $(document).ready(function() {
   //open the upload modal when clicked on the link
   $('a[data-target="#image-upload-modal"]').on('click',function(){
     let modalBody = $('.modal-body')
-    if (!init){
+    if (!initAlbums){
     $.post("/uploads/new",function(response, status){
       let albumList = $('#album-list')
         if (response.success){
-          if (!init){
+          if (!initAlbums){
             response.albums.forEach((album)=>{
               albumList.append(`<option value="${album.name}">${album.name}</option>`);
             });
-            init=true;
+            initAlbums=true;
           }
         }else{
           modalBody.append(`<div class="alert alert-danger">${response.msg}</div>`);
@@ -47,30 +48,34 @@ $(document).ready(function() {
   })
 
   //Show the albums when hover over the text
-  $('#viewAlbums').on('mouseenter', function(event){
-    let viewAlbums = this;
-    let myAlbums = $(viewAlbums).find('#myAlbums > div.row');
-    if (!showAlbums){
-    $.get("/albums/api/albums", function(response, status){
-      let albums = response;
-      albums.forEach((album)=>{
-        var data = `<div style="display:none" class="col-3"><a href="/albums/${album.id}">
-          ${album.name}</a></div>`
-        $(data).appendTo(myAlbums);
-      });
-      showAlbums=true;
-      $(myAlbums).find('.col-3').show(800);
-
-    });
-    }else{
-      $(myAlbums).find('.col-3').show(800);
+  $('#viewAlbums').on('click', function(event){
+      let viewAlbums = this;
+      let myAlbums = $(viewAlbums).find('#myAlbums > div.row');
+      if (!getAlbums){
+        $.get("/albums/api/albums", function(response, status){
+          let albums = response;
+          albums.forEach((album)=>{
+            let data = `<div style="display:none" class="col-3"><a href="/albums/${album.id}">
+            ${album.name}</a></div>`
+            $(data).appendTo(myAlbums);
+          });
+          getAlbums=true;
+          showAlbums=true;
+          $(myAlbums).find('.col-3').show(800);
+        });
+      }else{
+        console.log('show me');
+        console.log('get: '+getAlbums);
+        console.log('show: '+showAlbums);
+        if (!showAlbums){
+          console.log('show second time');
+          $(myAlbums).find('.col-3').show(800);
+          showAlbums=true;
+        }else{
+          let myAlbums = $(viewAlbums).find('#myAlbums div.col-3');
+          myAlbums.hide(1000);
+          showAlbums=false;
+        }
     }
   })
-
-  //Hide the show albums
-  $('#viewAlbums').on('mouseleave', function(event){
-    let viewAlbums = this;
-    let myAlbums = $(viewAlbums).find('#myAlbums div.col-3');
-     myAlbums.hide(1000);
-  });
 });

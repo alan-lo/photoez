@@ -6123,11 +6123,11 @@ footer {
 
 .folder {
   font-size: 20px;
-  color: #4E4E4E; }
+  color: white;
+  transition: all 2s; }
 
 .folder:hover {
-  border: 1px solid white;
-  transition: all 2s; }
+  border: 1px solid white; }
 
 @-webkit-keyframes pulse {
   0% {
@@ -6278,11 +6278,24 @@ footer {
 
 #viewAlbums, #myAlbums {
   color: white;
-  margin-bottom: 10px;
   margin-top: 10px; }
 
-#viewAlbums .col-3:hover {
+#myAlbums {
+  margin-top: 5px; }
+
+#viewAlbums .col-3:hover, .album-title:hover {
   text-shadow: 0 0 15px white; }
+
+#viewAlbums .col-3 {
+  margin-bottom: 5px; }
+
+.album-title {
+  color: #939393;
+  display: inline-block; }
+
+.album-title:hover {
+  color: white;
+  text-decoration: underline; }
 
 @media only screen and (min-width: 576px) {
   .photo-frame {

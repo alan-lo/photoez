@@ -1,14 +1,13 @@
 $(document).ready(function() {
-
   $(document).on( 'click','.fa-heart-o', function(event){
     let link = $(this).parents('.overlay-content').siblings('a').attr('href');
     let postId = $(this).parent().next().find('.postId').html();
     $.post(`/likes/${postId}`, {link: link, postId: postId} ,function(response, status){
-        if (response.success){
-          $(event.target).siblings('.likes-count').html(`${response.likes}`);
-        }
-        $(event.target).removeClass('fa-heart-o');
-        $(event.target).addClass('fa-heart');
+      if (response.success){
+        $(event.target).siblings('.likes-count').html(`${response.likes}`);
+      }
+      $(event.target).removeClass('fa-heart-o');
+      $(event.target).addClass('fa-heart');
     })
   })
 
@@ -22,7 +21,6 @@ $(document).ready(function() {
       data: {link: link, postId: postId},
       success: function (response, status) {
         if (response.success){
-          console.log(response.likes);
           $(event.target).siblings('.likes-count').html(`${response.likes}`);
         }
         $(event.target).removeClass('fa-heart');
@@ -33,25 +31,4 @@ $(document).ready(function() {
       }
     });
   });
-
-
-
-  // $('.fa-heart-o').on('click', function(event){
-  //   let link = $(this).parents('.overlay-content').siblings('a').attr('href');
-  //   let postId = $(this).parent().next().find('.postId').html();
-  //   console.log(postId);
-  //   console.log(link);
-  //   $.post('/likes', {link: link, postId: postId} ,function(response, status){
-  //
-  //       if (response.success){
-  //         console.log(response);
-  //         console.log($(event.currentTarget));
-  //         $(event.currentTarget).siblings('.likes-count').html(`${response.likes}`);
-  //       }
-  //       $(event.currentTarget).removeClass('fa-heart-o');
-  //       $(event.currentTarget).addClass('fa-heart');
-  //   })
-  // })
-
-
 })

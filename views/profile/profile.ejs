@@ -1,5 +1,6 @@
 <% let uploadImage = false %>
-<%- include('../partials/header.ejs', {uploadImage}) %>
+<% let canLike = false %>
+<%- include('../partials/header.ejs', {uploadImage, canLike}) %>
 <div id="profile" class="container">
   <div class="row d-flex flex-row">
     <div id="dashboard-profile" class="col-lg-6 d-flex flex-column justify-content-between">

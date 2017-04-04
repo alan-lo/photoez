@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {User, Album, Post} = require('../models/index');
+const {User, Album, Post, Like} = require('../models/index');
 
 router.get('/', function(req, res, next) {
   Album.findAll({
@@ -79,28 +79,70 @@ router.post('/delete', function(req, res, next) {
 })
 
 router.get('/:id', function(req, res, next) {
-  Album.findById( req.params.id ,
-    {
-      include: [
-      {
-        model: User
-      }, {
-        model: Post,
-        where: {
+  Album.findById( req.params.id ,{
+        where:{
           UserId: req.user.id
         }
-      }
-    ],
-    where:{
-      UserId: req.user.id
-    }
-    ,
-    order: [
-      ['name', 'ASC']
-    ]
-  }).then((album) => {
-     res.render('albums/show.ejs', {album: album, posts:album.Posts, user: album.User})
+      }).then((album) => {
+        if (album){
+          Post.findAll({
+            include: [
+              {
+                model: Like
+              },
+              {
+                model: User
+              }
+            ],
+            where:{
+              AlbumId: album.id
+            }
+          }).then((posts)=>{
+            if (posts.length > 0 ){
+              res.render('albums/show.ejs', {album: album, posts: posts, user:req.user});
+            }else{
+              res.render('albums/show.ejs', {album: album, posts: posts, user:req.user});
+           }
+        })
+        } else {
+          console.log('no album found');
+        }
   });
 });
+
+// router.get('/:id', function(req, res, next) {
+//   Album.findById( req.params.id ,
+//     {
+//       include: [
+//         {
+//         model: Post
+//         ,
+//         include:[
+//           {
+//             model: Like
+//           },
+//           {
+//             model: User
+//           }
+//         ]
+//       }
+//     ],
+//     where:{
+//       UserId: req.user.id
+//     }
+//     ,
+//     order: [
+//       ['name', 'ASC']
+//     ]
+//   }).then((album) => {
+//
+//     console.log(album);
+//     if (album){
+//       res.render('albums/show.ejs', {album: album, posts:album.Posts, user:req.user})
+//     } else {
+//       res.render('albums/show.ejs', {album: album, posts:album.Posts, user:req.user})
+//     }
+//   });
+// });
 
 module.exports = router;
