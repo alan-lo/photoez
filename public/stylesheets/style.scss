@@ -23,6 +23,7 @@ $navbar-light-color: $light-gray;
 $navbar-light-hover-color: white;
 $navbar-light-active-color: white;
 
+$glow-color: white;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -187,8 +188,19 @@ a:focus, a:hover {
 
 
 
-.glow, .title, .sub-title, #dashboard-profile, #profile, .nav-link:hover{
-  text-shadow: 0 0 15px white;
+.glow,
+.title,
+.sub-title,
+#dashboard-profile,
+#profile,
+.nav-link:hover{
+  text-shadow: 0 0 15px $glow-color;
+ }
+
+ #posts-container .fa-heart-o:hover,
+ #posts-container .fa-heart:hover{
+   color:red;
+   text-shadow: 0 0 3px red;
  }
 
 .title, .sub-title{
@@ -295,7 +307,10 @@ a:focus, a:hover {
 #profile-info-container{
     color:white;
 }
-#posts-container{
+
+#posts-container,
+#likes-container,
+#album-container{
 margin-top: 2vh;
 }
 
@@ -369,7 +384,7 @@ margin-top: 2vh;
 }
 
 #viewAlbums .col-3:hover, .album-title:hover{
-  text-shadow: 0 0 15px white;
+  text-shadow: 0 0 15px $glow-color;
 }
 
 #viewAlbums .col-3, #likedPosts{

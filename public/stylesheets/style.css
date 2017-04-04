@@ -6109,8 +6109,18 @@ a:focus, a:hover {
 .tab-content.active {
   display: block; }
 
-.glow, .title, .sub-title, #dashboard-profile, #profile, .nav-link:hover {
+.glow,
+.title,
+.sub-title,
+#dashboard-profile,
+#profile,
+.nav-link:hover {
   text-shadow: 0 0 15px white; }
+
+#posts-container .fa-heart-o:hover,
+#posts-container .fa-heart:hover {
+  color: red;
+  text-shadow: 0 0 3px red; }
 
 .title, .sub-title {
   margin-bottom: 20px; }
@@ -6223,7 +6233,9 @@ footer {
 #profile-info-container {
   color: white; }
 
-#posts-container {
+#posts-container,
+#likes-container,
+#album-container {
   margin-top: 2vh; }
 
 .profile-info {
