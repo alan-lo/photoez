@@ -3,6 +3,33 @@ const router = express.Router();
 const {User, Post, Album, Like} = require('../models/index');
 
 
+
+router.get('/', function(req, res, next){
+  if (req.user){
+    Like.findAll({
+    include: [
+      {
+        model: Post,
+        include: [
+          {
+          model: User
+          }
+        ]
+      }
+    ],
+    where:{
+      UserId: req.user.id
+    }
+    }).then((likes) => {
+      if (likes){
+        res.render('likes/likes', {likes: likes, user: req.user})
+      }
+    })
+  }else{
+    res.redirect('/');
+  }
+});
+
 router.post('/:id', function(req, res, next) {
   const {link, postId}= req.body;
   if (req.user) {

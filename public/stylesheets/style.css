@@ -6276,17 +6276,17 @@ footer {
 .postId {
   display: none; }
 
-#viewAlbums, #myAlbums {
+#viewAlbums, #myAlbums, #likedPosts {
   color: white;
   margin-top: 10px; }
 
-#myAlbums {
+#myAlbums, #likedPosts {
   margin-top: 5px; }
 
 #viewAlbums .col-3:hover, .album-title:hover {
   text-shadow: 0 0 15px white; }
 
-#viewAlbums .col-3 {
+#viewAlbums .col-3, #likedPosts {
   margin-bottom: 5px; }
 
 .album-title {

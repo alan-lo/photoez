@@ -308,10 +308,6 @@ margin-top: 2vh;
   margin-bottom: 20px;
 }
 
-.viewAlbum{
-
-}
-
 
 /*styles for posts page*/
 .post{
@@ -363,12 +359,12 @@ margin-top: 2vh;
   display:none;
 }
 
-#viewAlbums, #myAlbums {
+#viewAlbums, #myAlbums, #likedPosts {
   color:white;
   margin-top: 10px;
 }
 
-#myAlbums{
+#myAlbums, #likedPosts{
   margin-top: 5px;
 }
 
@@ -376,7 +372,7 @@ margin-top: 2vh;
   text-shadow: 0 0 15px white;
 }
 
-#viewAlbums .col-3{
+#viewAlbums .col-3, #likedPosts{
  margin-bottom: 5px;
 }
 
