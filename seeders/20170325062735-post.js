@@ -1,5 +1,4 @@
 'use strict';
-const faker = require('faker');
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
@@ -27,8 +26,8 @@ module.exports = {
       if (i < 5) {
         posts.push(
         {
-          title: faker.lorem.words(3),
-          body: faker.lorem.paragraphs(2),
+          title: 'Title',
+          body: 'Caption',
           imageURL: getPhotoURL(i),
           UserId: 1,
           AlbumId: (Math.floor(Math.random() * 2) + 1),
@@ -38,8 +37,8 @@ module.exports = {
       }else{
         posts.push(
         {
-          title: faker.lorem.words(3),
-          body: faker.lorem.paragraphs(2),
+          title: 'Title',
+          body: 'Caption',
           imageURL: getPhotoURL(i),
           UserId: 2,
           AlbumId: (Math.floor(Math.random() * 2) + 1),
