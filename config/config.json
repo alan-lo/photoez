@@ -10,7 +10,6 @@
     "dialect": "postgres"
   },
   "production": {
-    "use_env_variable": "postgres://mflljjobulcbwg:15d6ac6a0c1fa96ef26d1588763d7c714ab719dbc87fc90ffe29fd9537dfb12b@ec2-107-22-223-6.compute-1.amazonaws.com:5432/d2equ9pndu5s3i",
-    "dialect": "postgres"
+    "use_env_variable": "postgres://mflljjobulcbwg:15d6ac6a0c1fa96ef26d1588763d7c714ab719dbc87fc90ffe29fd9537dfb12b@ec2-107-22-223-6.compute-1.amazonaws.com:5432/d2equ9pndu5s3i"
   }
 }
