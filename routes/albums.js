@@ -95,7 +95,8 @@ router.get('/:id', function(req, res, next) {
               }
             ],
             where:{
-              AlbumId: album.id
+              AlbumId: album.id,
+              UserId: req.user.id
             }
           }).then((posts)=>{
             if (posts.length > 0 ){
