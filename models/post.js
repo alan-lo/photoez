@@ -18,8 +18,10 @@ module.exports = function(sequelize, DataTypes) {
         Post.belongsTo(models.Album);
         Post.belongsTo(models.User);
         Post.hasMany(models.Comment);
-        Post.belongsToMany(models.User, { through: 'Follow', foreignKey: 'userId' })
-        Post.belongsToMany(models.User, { through: 'Like', foreignKey: 'postId' })
+        Post.hasMany(models.Follow);
+        Post.hasMany(models.Like);
+        // Post.belongsToMany(models.User, { through: 'Follow', foreignKey: 'UserId' })
+        // Post.belongsToMany(models.User, { through: 'Likes', foreignKey: 'PostId' })
       }
     }
   });

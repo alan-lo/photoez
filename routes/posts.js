@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {User, Post} = require('../models/index');
+const {User, Post, Like} = require('../models/index');
 
 let pageLimit = 9;
 
@@ -10,6 +10,9 @@ router.get('/', function(req, res, next) {
       include: [
         {
           model: User
+        },
+        {
+          model: Like
         }
       ]
       ,

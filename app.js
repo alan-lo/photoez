@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const authenticate = require('./config/authenticate')(passport);
 
+
 const flash    = require('connect-flash');
 const session  = require('express-session');
 const options = require('./config/cloudinary-config');
@@ -18,6 +19,7 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const dashboard = require('./routes/dashboard');
 const posts = require('./routes/posts');
+const likes = require('./routes/likes');
 const albums = require('./routes/albums');
 const uploads = require('./routes/upload');
 // const signUp = require('./routes/signup');
@@ -131,6 +133,7 @@ app.use('/users', users(passport));
 app.use('/dashboard', loggedIn, dashboard);
 app.use('/albums', albums);
 app.use('/posts', posts);
+app.use('/likes', likes);
 app.use('/uploads', uploads(cloudinary));
 // app.use('/sign-up', signUp);
 

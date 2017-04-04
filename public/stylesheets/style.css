@@ -6061,6 +6061,9 @@ a:focus, a:hover {
   overflow: hidden; }
 
 .lens-inner {
+  -webkit-box-shadow: 6px 6px 15px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 6px 6px 15px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 6px 6px 15px -2px rgba(0, 0, 0, 0.75);
   overflow: hidden;
   position: absolute;
   top: 50%;
@@ -6236,7 +6239,8 @@ footer {
   overflow: hidden;
   max-width: 100%;
   max-height: 100%;
-  position: relative; }
+  position: relative;
+  font-size: 15px; }
 
 .post img {
   overflow: hidden;
@@ -6268,6 +6272,9 @@ footer {
 
 .overlay-content.active {
   visibility: visible; }
+
+.postId {
+  display: none; }
 
 #viewAlbums, #myAlbums {
   color: white;
