@@ -41,7 +41,7 @@ module.exports = {
           body: 'Caption',
           imageURL: getPhotoURL(i),
           UserId: 2,
-          AlbumId: (Math.floor(Math.random() * 4) + 3),
+          AlbumId: (Math.floor(Math.random() * 2) + 3),
           createdAt: new Date(),
           updatedAt: new Date()
         });
