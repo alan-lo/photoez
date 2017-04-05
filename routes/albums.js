@@ -38,9 +38,6 @@ router.get('/api/albums', function(req, res, next) {
   });
 });
 
-
-
-
 router.post('/create', function(req, res, next) {
   const {name} = req.body
   Album.findOne({

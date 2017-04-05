@@ -6235,7 +6235,8 @@ footer {
 
 #posts-container,
 #likes-container,
-#album-container {
+#album-container,
+#top-posts-container {
   margin-top: 2vh; }
 
 .profile-info {
@@ -6254,11 +6255,11 @@ footer {
   position: relative;
   font-size: 15px; }
 
-.post img {
+.post div.img-fluid {
   overflow: hidden;
   transition: all 0.8s; }
 
-.post img:hover {
+.post div.img-fluid:hover {
   -moz-transform: scale(1.3);
   -webkit-transform: scale(1.3);
   transform: scale(1.3);

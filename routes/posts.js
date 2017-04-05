@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
         }
       ]
       ,
+      order: [['id', 'ASC']],
       limit: pageLimit,
       offset: (req.query.page - 1) * pageLimit
     }).then((posts) => {

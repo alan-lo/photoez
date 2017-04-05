@@ -1,4 +1,3 @@
-
 <% let uploadImage = true %>
 <%- include('../partials/header.ejs', {uploadImage}) %>
 <div id="posts-container" class="container">
@@ -14,10 +13,10 @@
     </div>
   </div>
   <div class="row parent-container">
-      <% posts.forEach(function(post) { %>
-        <div class="col-sm-4">
+    <% posts.forEach(function(post) { %>
+      <div class="col-sm-4">
           <div class="post">
-            <a href="<%= post.imageURL %>"><img class="img-fluid" src="<%= post.imageURL %>" alt="User Image"></a>
+            <a href="<%= post.imageURL %>"><div class="img-fluid" style="background-size: cover;background-image: url('<%= post.imageURL %>'); width: 100%; height:200px;"></div></a>
             <div class="overlay-content">
               <div class="d-flex justify-content-center align-items-center">
                 <div class="likes-count"><%= post.Likes.length %></div> &nbsp;
@@ -62,7 +61,6 @@
     </div>
   </div>
 </div>
-
 <%- include('../upload/upload-modal.ejs') %>
 <script src="/javascripts/liking.js"></script>
 <%- include('../partials/footer.ejs') %>

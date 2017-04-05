@@ -186,8 +186,6 @@ a:focus, a:hover {
   display:block;
 }
 
-
-
 .glow,
 .title,
 .sub-title,
@@ -294,7 +292,6 @@ a:focus, a:hover {
    align-items: center;
  }
 
-
 /*styles for profile page*/
 #profile{
  margin-top: 10vh;
@@ -310,7 +307,8 @@ a:focus, a:hover {
 
 #posts-container,
 #likes-container,
-#album-container{
+#album-container,
+#top-posts-container{
 margin-top: 2vh;
 }
 
@@ -323,7 +321,6 @@ margin-top: 2vh;
   margin-bottom: 20px;
 }
 
-
 /*styles for posts page*/
 .post{
   margin-bottom: 2vh;
@@ -334,11 +331,11 @@ margin-top: 2vh;
   font-size:15px;
   }
 
-.post img{
+.post div.img-fluid{
   overflow: hidden;
   transition: all 0.8s ;
 }
-.post img:hover{
+.post div.img-fluid:hover{
     -moz-transform: scale(1.3);
    -webkit-transform: scale(1.3);
    transform: scale(1.3);

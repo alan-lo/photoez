@@ -9,11 +9,12 @@
     </div>
   </div>
   <div class="row parent-container">
-      <% likes.forEach(function(like) { %>
+    <% likes.forEach(function(like) { %>
         <div class="col-sm-4">
           <div class="post">
             <a href="<%= like.Post.imageURL %>">
-              <img class="img-fluid" src="<%= like.Post.imageURL %>" alt="User Image">
+              <div class="img-fluid" style="background-size: cover; background-image: url('<%= like.Post.imageURL %>'); width: 100%; height:200px;">
+              </div>
             </a>
             <div class="overlay-content">
               <div class="d-flex justify-content-center align-items-center">

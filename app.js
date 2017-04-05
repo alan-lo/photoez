@@ -22,6 +22,7 @@ const posts = require('./routes/posts');
 const likes = require('./routes/likes');
 const albums = require('./routes/albums');
 const uploads = require('./routes/upload');
+const features = require('./routes/features');
 // const signUp = require('./routes/signup');
 
 const app = express();
@@ -134,6 +135,7 @@ app.use('/dashboard', loggedIn, dashboard);
 app.use('/albums', albums);
 app.use('/posts', posts);
 app.use('/likes', likes);
+app.use('/features', features);
 app.use('/uploads', uploads(cloudinary));
 // app.use('/sign-up', signUp);
 
