@@ -8,8 +8,6 @@ const expressValidator = require('express-validator');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const authenticate = require('./config/authenticate')(passport);
-
-
 const flash    = require('connect-flash');
 const session  = require('express-session');
 const options = require('./config/cloudinary-config');
@@ -118,7 +116,6 @@ function loggedIn(req, res, next) {
         res.redirect('/');
     }
 }
-
 
 cloudinary.config({
 	      cloud_name: options.cloudinary.cloud_name,

@@ -64,11 +64,7 @@ $(document).ready(function() {
           $(myAlbums).find('.col-3').show(800);
         });
       }else{
-        console.log('show me');
-        console.log('get: '+getAlbums);
-        console.log('show: '+showAlbums);
         if (!showAlbums){
-          console.log('show second time');
           $(myAlbums).find('.col-3').show(800);
           showAlbums=true;
         }else{
