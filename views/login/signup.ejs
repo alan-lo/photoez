@@ -1,13 +1,21 @@
-
-<div class="form-group">
-  <a href="/users/auth/facebook">
-    <button class="btn btn-social btn-facebook">
-    <div class="fa fa-facebook"></div><div>Login with Facebook</div>
-    </button>
-  </a>
+<div class="form-group row">
+  <div class="col-6">
+    <a href="/users/auth/facebook">
+      <button class="btn btn-social btn-facebook">
+      <div class="fa fa-facebook"></div><div>Login with Facebook</div>
+      </button>
+    </a>
+  </div>
+  <div class="col-6">
+    <a href="/users/auth/facebook">
+      <button class="btn btn-social btn-google">
+      <div class="fa fa-google"></div><div>Login with Google</div>
+      </button>
+    </a>
+  </div>
 </div>
 <hr>
-<form method="post" action="/users/register">
+<form id="sign-up-form" method="post" action="/users/register">
   <div class="row">
     <% if (!errors.hasOwnProperty('firstname')) { %>
       <% if (!Object.prototype.hasOwnProperty.call(body,'firstname')) { %>

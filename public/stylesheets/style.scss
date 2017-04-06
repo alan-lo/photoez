@@ -81,7 +81,7 @@ a {
   text-decoration: none; /* no underline */
 }
 a:focus, a:hover {
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
 
@@ -95,6 +95,7 @@ a:focus, a:hover {
 }
 
 #sign-up, #login{
+  font-size: 1rem !important;
   padding:15px 15px 0 15px;
   background-color: $light-gray;
   @include box-shadow-m(6px, 6px, 15px, -2px, rgba(0,0,0,0.75), false);
@@ -115,7 +116,7 @@ a:focus, a:hover {
 #main{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 50vh;
 }
 
