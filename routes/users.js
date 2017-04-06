@@ -17,6 +17,19 @@ const loginRoutes = function(passport){
     res.send('respond with a resource');
   });
 
+  router.get('/auth/google',
+  passport.authenticate('google',
+    { scope: [
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email'] 
+  }));
+
+  router.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/posts/?page=1');
+  });
+
   router.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
 
   router.get('/auth/facebook/callback', passport.authenticate('facebook', {

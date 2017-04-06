@@ -1,5 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const bcrypt = require('bcryptjs');
 const {User} = require('../models/index');
 const authConfig = require('./passport-auth-config');
@@ -41,7 +42,34 @@ module.exports = function(passport){
              lastName: profile.name.familyName,
              email: profile.emails[0].value,
              password: 'default',
-             userName: profile.displayName,
+             userName: profile.emails[0].value,
+             provider: profile.provider
+           }
+        }
+      ).spread((user, created) => {
+        done(null, user);
+      }).catch((err) =>{
+        return done(err);
+      });
+  }
+));
+
+  passport.use(new GoogleStrategy({
+    clientID: authConfig.google.clientID,
+    clientSecret: authConfig.google.clientSecret,
+    callbackURL: "http://localhost:3000/users/auth/google/callback"
+  },
+  function(token, tokenSecret, profile, done) {
+    console.log(profile);
+    User.findOrCreate(
+        {
+           where: {profileId: profile.id},
+           defaults: {
+             firstName: profile.name.givenName,
+             lastName: profile.name.familyName,
+             email: profile.emails[0].value,
+             password: 'default',
+             userName: profile.emails[0].value,
              provider: profile.provider
            }
         }

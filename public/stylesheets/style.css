@@ -6013,8 +6013,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 a {
   color: inherit;
-  text-decoration: none;
-  /* no underline */ }
+  text-decoration: none; }
 
 a:focus, a:hover {
   color: white;
