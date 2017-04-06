@@ -12,7 +12,6 @@ const flash    = require('connect-flash');
 const session  = require('express-session');
 const options = require('./config/cloudinary-config');
 const cloudinary = require('cloudinary');
-//routes
 const index = require('./routes/index');
 const users = require('./routes/users');
 const dashboard = require('./routes/dashboard');
@@ -21,14 +20,11 @@ const likes = require('./routes/likes');
 const albums = require('./routes/albums');
 const uploads = require('./routes/upload');
 const features = require('./routes/features');
-// const signUp = require('./routes/signup');
 
 const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-//require('./routes/sigup.js')(passport); // load our routes and pass in our app and fully configured passport
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -59,8 +55,6 @@ app.use(expressValidator({
   }
 }));
 
-
-
 //connect flash
 app.use(flash());
 
@@ -87,7 +81,6 @@ app.use(function (req, res, next) {
   res.locals.login = req.isAuthenticated();
   next();
 });
-
 
 app.use(methodOverride('X-HTTP-Method'));          // Microsoft
 app.use(methodOverride('X-HTTP-Method-Override')); // Google/GData
@@ -134,7 +127,6 @@ app.use('/posts', posts);
 app.use('/likes', likes);
 app.use('/features', features);
 app.use('/uploads', uploads(cloudinary));
-// app.use('/sign-up', signUp);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -142,7 +134,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 
 // error handler
 app.use(function(err, req, res, next) {

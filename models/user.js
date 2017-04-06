@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     profile: DataTypes.TEXT,
     password: DataTypes.STRING,
+    profileId: DataTypes.STRING,
     resetPasswordToken: DataTypes.STRING,
     resetPasswordExpires: DataTypes.DATE,
     isAdmin: {

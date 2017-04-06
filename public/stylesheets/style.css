@@ -6118,6 +6118,13 @@ a:focus, a:hover {
 .sub-title {
   color: white; }
 
+button.btn-facebook {
+  display: flex;
+  align-items: center; }
+
+.btn {
+  font-size: 1rem !important; }
+
 .glow,
 .title,
 .sub-title,

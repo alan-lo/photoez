@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "npm rebuild node-sass",
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "debug": "nodemon --inspect ./bin/www",
     "s": "sequelize"
   },
@@ -28,6 +28,7 @@
     "node-sass": "^3.4.0",
     "node-sass-middleware": "0.9.8",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",

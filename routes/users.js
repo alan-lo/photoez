@@ -17,15 +17,23 @@ const loginRoutes = function(passport){
     res.send('respond with a resource');
   });
 
+  router.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
+
+  router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect: '/posts/?page=1',
+    failureRedirect: '/'
+  }));
+
   router.get('/sign-in', function(req, res, next) {
     res.render('index', {body:{}, errors:{}});
   });
 
   router.post('/sign-in', passport.authenticate('local', {
     successRedirect: '/posts/?page=1',
-    failureRedirect: '/users/sign-in',
+    failureRedirect: '/',
     failureFlash: true,
   }))
+
 
   router.get('/register', function(req, res, next) {
       res.render('index', {body:{}, errors:{}});

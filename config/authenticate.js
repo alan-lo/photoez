@@ -1,6 +1,8 @@
 const LocalStrategy = require('passport-local').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const bcrypt = require('bcryptjs');
 const {User} = require('../models/index');
+const authConfig = require('./passport-auth-config');
 
 module.exports = function(passport){
   passport.use(new LocalStrategy(
@@ -22,6 +24,33 @@ module.exports = function(passport){
             return done(null, user);
           });
   }));
+
+  passport.use(new FacebookStrategy({
+    clientID: authConfig.facebook.clientID,
+    clientSecret: authConfig.facebook.clientSecret,
+    callbackURL: "http://localhost:3000/users/auth/facebook/callback",
+    profileFields: ['id', 'displayName', 'emails', 'name']
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log(profile);
+    User.findOrCreate(
+        {
+           where: {profileId: profile.id},
+           defaults: {
+             firstName: profile.name.givenName,
+             lastName: profile.name.familyName,
+             email: profile.emails[0].value,
+             password: 'default',
+             userName: profile.displayName
+           }
+        }
+      ).spread((user, created) => {
+        done(null, user);
+      }).catch((err) =>{
+        return done(err);
+      });
+  }
+));
 
   passport.serializeUser(function(user, done) {
     done(null, user.id);

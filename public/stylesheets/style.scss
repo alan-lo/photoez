@@ -76,7 +76,6 @@ $glow-color: white;
 
 @import "node_modules/bootstrap/scss/bootstrap.scss";
 
-
 a {
   color: inherit;
   text-decoration: none; /* no underline */
@@ -199,6 +198,14 @@ a:focus, a:hover {
  .sub-title{
    color:white;
  }
+
+button.btn-facebook{
+  display: flex;
+  align-items: center;
+}
+.btn {
+  font-size: 1.0rem!important;
+}
 
 .glow,
 .title,

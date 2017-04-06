@@ -38,6 +38,9 @@ module.exports = {
           notEmpty: true
         }
       },
+      profileId:{
+          type: Sequelize.STRING
+      },
       resetPasswordToken: {
         type: Sequelize.STRING
       },
