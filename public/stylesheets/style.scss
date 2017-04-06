@@ -10,7 +10,10 @@ $grid-gutter-width-base: 15px;
 $input-padding-x: .5rem;
 $input-padding-y: .35rem;
 $input-line-height: 1.25;
-$font-size-base: 0.9rem;
+$font-size-base: 1.2rem;
+
+$alert-padding-y: 0.25rem;
+
 
 $pagination-hover-color: $medium-gray;
 $pagination-active-bg: $medium-gray;
@@ -106,10 +109,14 @@ a:focus, a:hover {
 }
 
 #login-btn.active, #sign-in-btn.active{
+  color:white;
   background-color: $light-gray;
 }
 
 #main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 50vh;
 }
 
@@ -163,8 +170,8 @@ a:focus, a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 8.5rem;
-  @include circle(200px, 200px, $medium-gray);
+  font-size: 11.5rem;
+  @include circle(300px, 300px, $medium-gray);
 }
 
 
@@ -173,6 +180,8 @@ a:focus, a:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* styles for the landing page*/
 
 .photo-frame{
   margin: 5vh auto;
@@ -186,6 +195,11 @@ a:focus, a:hover {
   display:block;
 }
 
+.title,
+ .sub-title{
+   color:white;
+ }
+
 .glow,
 .title,
 .sub-title,
@@ -194,6 +208,7 @@ a:focus, a:hover {
 .nav-link:hover{
   text-shadow: 0 0 15px $glow-color;
  }
+
 
  #posts-container .fa-heart-o:hover,
  #posts-container .fa-heart:hover{

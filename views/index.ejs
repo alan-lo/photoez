@@ -22,20 +22,38 @@
       </div>
       <div id="main-b" class="col-lg-6">
         <div class="row">
+          <% if (!error) { %>
           <div id="sign-in-btn" class="col-6 active">
             <span class="glow">Sign up</span>
           </div>
           <div id="login-btn" class="col-6">
             <span class="glow">Login</span>
           </div>
+          <% } else { %>
+          <div id="sign-in-btn" class="col-6">
+            <span class="glow">Sign up</span>
+          </div>
+          <div id="login-btn" class="col-6 active">
+            <span class="glow">Login</span>
+          </div>
+          <% } %>
         </div>
         <div class="row">
+          <% if (!error) { %>
           <div id="sign-up" class="col-12 tab-content active">
             <%- include('./login/signup.ejs') %>
           </div>
           <div id="login" class="col-12 tab-content">
             <%- include('./login/login.ejs') %>
           </div>
+          <% } else { %>
+          <div id="sign-up" class="col-12 tab-content">
+            <%- include('./login/signup.ejs') %>
+          </div>
+          <div id="login" class="col-12 tab-content active">
+            <%- include('./login/login.ejs') %>
+          </div>
+          <% } %>
         </div>
       </div>
     </div>

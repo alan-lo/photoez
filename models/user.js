@@ -32,8 +32,6 @@ module.exports = function(sequelize, DataTypes) {
         User.hasMany(models.Comment);
         User.hasMany(models.Follow);
         User.hasMany(models.Like);
-        // User.belongsToMany(models.Post, { through: 'Follow'})
-        // User.belongsToMany(models.Post, { through: 'Like'})
       }
     }
   });
