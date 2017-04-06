@@ -39,7 +39,10 @@ module.exports = {
         }
       },
       profileId:{
-          type: Sequelize.STRING
+        type: Sequelize.STRING
+      },
+      provider:{
+        type: Sequelize.STRING
       },
       resetPasswordToken: {
         type: Sequelize.STRING

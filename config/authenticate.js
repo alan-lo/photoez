@@ -41,7 +41,8 @@ module.exports = function(passport){
              lastName: profile.name.familyName,
              email: profile.emails[0].value,
              password: 'default',
-             userName: profile.displayName
+             userName: profile.displayName,
+             provider: profile.provider
            }
         }
       ).spread((user, created) => {

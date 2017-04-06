@@ -14,6 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     profile: DataTypes.TEXT,
     password: DataTypes.STRING,
     profileId: DataTypes.STRING,
+    provider: DataTypes.STRING,
     resetPasswordToken: DataTypes.STRING,
     resetPasswordExpires: DataTypes.DATE,
     isAdmin: {
