@@ -8,6 +8,7 @@
       </div>
     </div>
   </div>
+  <% if (likes.length != 0) { %>
   <div class="row parent-container">
     <% likes.forEach(function(like) { %>
         <div class="col-sm-4">
@@ -30,6 +31,24 @@
       </div>
     <% }) %>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <ul class = "pagination">
+        <% let previousPage = (currentPage - 1) < 0 || pages==currentPage ? (currentPage - 1): 1 %>
+          <li class="page-item"><a class="page-link" href = "/likes/?page=<%= previousPage%>">&laquo;</a></li>
+         <% for(let i = 1 ; i <= pages; i++) {%>
+          <% if (i == currentPage) {%>
+           <li class="page-item active"><a class="page-link" href = "/likes/?page=<%= i %>"><%= i %></a></li>
+          <% } else { %>
+           <li class="page-item"><a class="page-link" href = "/likes/?page=<%= i %>"><%= i %></a></li>
+          <% } %>
+         <% }%>
+        <% let nextPage = (currentPage + 1) < pages ? (currentPage + 1): pages %>
+          <li class="page-item"><a class="page-link" href = "/likes/?page=<%= nextPage %>">&raquo;</a></li>
+      </ul>
+    </div>
+  </div>
+  <% } %>
 </div>
 <%- include('../upload/upload-modal.ejs') %>
 <%- include('../partials/footer.ejs') %>

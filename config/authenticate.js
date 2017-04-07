@@ -33,7 +33,6 @@ module.exports = function(passport){
     profileFields: ['id', 'displayName', 'emails', 'name']
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
     User.findOrCreate(
         {
            where: {profileId: profile.id},
@@ -60,7 +59,6 @@ module.exports = function(passport){
     callbackURL: "http://localhost:3000/users/auth/google/callback"
   },
   function(token, tokenSecret, profile, done) {
-    console.log(profile);
     User.findOrCreate(
         {
            where: {profileId: profile.id},

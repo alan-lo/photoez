@@ -94,7 +94,10 @@ router.get('/:id', function(req, res, next) {
             where:{
               AlbumId: album.id,
               UserId: req.user.id
-            }
+            },
+            order:[
+              ['createdAt','ASC']
+            ]
           }).then((posts)=>{
             if (posts.length > 0 ){
               res.render('albums/show.ejs', {album: album, posts: posts, user:req.user});

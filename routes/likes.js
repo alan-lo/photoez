@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const {User, Post, Album, Like} = require('../models/index');
 
+let pageLimit = 9;
+
 router.get('/', function(req, res, next){
   if (req.user){
-    Like.findAll({
+    Like.findAndCountAll({
     include: [
       {
         model: Post,
@@ -17,10 +19,16 @@ router.get('/', function(req, res, next){
     ],
     where:{
       UserId: req.user.id
-    }
+    },
+    limit: pageLimit,
+    offset: (req.query.page - 1) * pageLimit
     }).then((likes) => {
       if (likes){
-        res.render('likes/likes', {likes: likes, user: req.user})
+        let numPages = Math.ceil(likes.count / likes.rows.length);
+        if (likes.rows.length < pageLimit){
+          numPages = req.query.page;
+        }
+        res.render('likes/likes', {likes: likes.rows, currentPage: parseInt(req.query.page), pages: numPages, user: req.user})
       }
     })
   }else{
