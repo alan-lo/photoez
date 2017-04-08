@@ -5,10 +5,10 @@ $link-color: #4db0c9;
 $light-gray: #939393;
 $medium-gray: #4E4E4E;
 
-$grid-gutter-width-base: 15px;
+$grid-gutter-width-base: 5px;
 
 $input-padding-x: .5rem;
-$input-padding-y: .35rem;
+$input-padding-y: .25rem;
 $input-line-height: 1.25;
 $font-size-base: 1.2rem;
 
@@ -346,7 +346,7 @@ margin-top: 2vh;
 
 /*styles for posts page*/
 .post{
-  margin-bottom: 2vh;
+  margin-bottom: $grid-gutter-width-base;
   overflow: hidden;
   max-width:100%;
   max-height: 100%;
@@ -418,6 +418,45 @@ margin-top: 2vh;
 .album-title:hover{
   color:white;
   text-decoration: underline;
+}
+
+
+#popup-container{
+  margin: 0;
+  padding: 0;
+  margin: auto;
+}
+.post-popup {
+position: relative;
+background: #FFF;
+padding: 20px;
+max-width: 70vw;
+max-height: 80vh;
+margin: 20px auto;
+}
+
+.post-comment{
+  font-size: 0.9rem;
+}
+
+#comments-container{
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.comment-icons{
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
+
+textarea[name="comment"]{
+  font-size: 15px;
+  resize: none;
+  height: 100px;
+}
+
+.post-img{
+  width:100%;
 }
 
 @media only screen and (min-width: 576px) {

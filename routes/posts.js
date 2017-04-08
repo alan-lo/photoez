@@ -31,4 +31,27 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.get('/:id', function(req, res, next) {
+  if (req.user) {
+    Post.findById(req.params.id ,{
+      include: [
+        {
+          model: User
+        },
+        {
+          model: Like
+        }
+      ]
+    }).then((post) => {
+      console.log(post);
+      if (post){
+        res.render('posts/post', {post: post} );
+      }
+    });
+  } else {
+    res.redirect('/');
+  }
+});
+
+
 module.exports = router;

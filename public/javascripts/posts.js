@@ -5,12 +5,17 @@ let initAlbums = false;
 
 $(document).ready(function() {
 
-  $('.parent-container').magnificPopup({
-    delegate: 'a',
-    type:'image',
-    gallery:{enabled:true}
+  $('.post a').magnificPopup({
+    closeOnContentClick: false,
+    type:'ajax',
+    gallery:{
+      enabled:true
     }
-  );
+  });
+
+  // $('.ajax-popup-link').magnificPopup({
+  //   type: 'image'
+  // });
 
   $('.post').on('mouseenter',function(event){
     $(this).children('.overlay-content').addClass('active').fadeIn();
