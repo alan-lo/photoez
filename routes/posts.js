@@ -41,7 +41,12 @@ router.get('/:id', function(req, res, next) {
         {
           model: Like
         },{
-          model: Comment
+          model: Comment,
+          include: [
+            {
+              model: User
+            }
+          ]
         }
       ]
     }).then((post) => {
@@ -49,7 +54,22 @@ router.get('/:id', function(req, res, next) {
         post.update({
           viewCount: post.viewCount + 1
         }).then(function(){
-          res.render('posts/post', {post: post} );
+
+        post.getComments({
+          include: [
+            {
+              model: User
+            }
+          ] ,
+          order: [['id', 'DESC']]
+        }).then((comments) => {
+              if (comments){
+                console.log(comments);
+              }
+              res.render('posts/post', {post: post, comments: comments} );
+            });
+
+          // res.render('posts/post', {post: post} );
         });
 
       }
@@ -59,5 +79,26 @@ router.get('/:id', function(req, res, next) {
   }
 });
 
+router.post('/:id/comment', function(req, res, next) {
+  if (req.user) {
+    Post.findById(req.params.id)
+        .then((post) => {
+          console.log(post);
+          if (post){
+            Comment.create({body: req.body.comment,
+                            UserId: req.user.id,
+                            PostId:req.params.id
+                          }).then((comment) => {
+                            if (comment){
+                              console.log(comment);
+                            }
+                            res.send({success:true, comment: comment, firstName: req.user.firstName});
+                          })
+        }
+    });
+  } else {
+    res.redirect('/');
+  }
+});
 
 module.exports = router;

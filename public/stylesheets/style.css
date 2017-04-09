@@ -6343,7 +6343,7 @@ footer {
   font-size: 0.9rem; }
 
 #comments-container {
-  max-height: 300px;
+  max-height: 200px;
   overflow-y: scroll; }
 
 .comment-icons {

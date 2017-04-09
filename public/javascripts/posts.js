@@ -4,7 +4,6 @@ let getAlbums = false;
 let initAlbums = false;
 
 $(document).ready(function() {
-
   $('.post a').magnificPopup({
     closeOnContentClick: false,
     type:'ajax',
@@ -12,6 +11,17 @@ $(document).ready(function() {
       enabled:true
     }
   });
+
+  $(document).on('submit','#comment-form', function(event){
+    event.preventDefault();
+    let comment = $(this).find('textarea').val();
+    let id=$(this).data('id')
+    $.post(`/posts/${id}/comment`, {comment: comment} ,function(response, status){
+        if (response.success){
+          $('#comments-container').prepend(`<div>${response.firstName}:${response.comment.body}</div>`)
+        }
+      });
+  })
 
   $('.post').on('mouseenter',function(event){
     $(this).children('.overlay-content').addClass('active').fadeIn();
