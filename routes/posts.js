@@ -13,18 +13,27 @@ router.get('/', function(req, res, next) {
         },
         {
           model: Like
+        },
+        {
+          model: Comment
         }
-      ]
-      ,
+      ],
       order: [['id', 'ASC']],
       limit: pageLimit,
       offset: (req.query.page - 1) * pageLimit
     }).then((posts) => {
-        let numPages = Math.ceil(posts.count / posts.rows.length);
+      Post.count()
+          .then((count) => {
+        console.log(count);
+        let numPages = Math.ceil(count / posts.rows.length);
+        // console.log(posts.count);
+        console.log(posts.rows.length);
+        console.log(numPages);
         if (posts.rows.length < pageLimit){
           numPages = req.query.page;
         }
         res.render('posts/posts', {posts: posts.rows, currentPage: parseInt(req.query.page), pages:numPages, user: req.user})
+      });
     });
   } else {
     res.redirect('/');
@@ -68,10 +77,7 @@ router.get('/:id', function(req, res, next) {
               }
               res.render('posts/post', {post: post, comments: comments} );
             });
-
-          // res.render('posts/post', {post: post} );
         });
-
       }
     });
   } else {

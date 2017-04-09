@@ -1,5 +1,5 @@
 const express = require('express');
-const {User, Post, Album, Like} = require('../models/index');
+const {User, Post, Album, Like, Comment} = require('../models/index');
 const router = express.Router();
 
 router.get('/', function(req, res, next) {
@@ -12,8 +12,12 @@ router.get('/', function(req, res, next) {
         },
         {
         model: User
+        },
+        {
+        model: Comment
         }
-      ]
+      ],
+      order: [['viewCount','DESC']]
       }).then((posts) => {
         posts.sort((a,b)=>{
           return b.Likes.length - a.Likes.length;
