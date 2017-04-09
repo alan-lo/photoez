@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     body: DataTypes.TEXT,
     title: DataTypes.STRING,
     imageURL: DataTypes.STRING,
+    viewCount: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER,
     AlbumId: DataTypes.INTEGER,
     createdAt: {

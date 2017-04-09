@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {User, Post, Like} = require('../models/index');
+const {User, Post, Like, Comment} = require('../models/index');
 
 let pageLimit = 9;
 
@@ -40,12 +40,18 @@ router.get('/:id', function(req, res, next) {
         },
         {
           model: Like
+        },{
+          model: Comment
         }
       ]
     }).then((post) => {
-      console.log(post);
       if (post){
-        res.render('posts/post', {post: post} );
+        post.update({
+          viewCount: post.viewCount + 1
+        }).then(function(){
+          res.render('posts/post', {post: post} );
+        });
+
       }
     });
   } else {

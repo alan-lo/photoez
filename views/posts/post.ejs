@@ -9,6 +9,7 @@
       <div class="row">
         <div class="col d-flex justify-content-between">
           <div>
+            <%= post.viewCount %>
             <i class="fa fa-eye" aria-hidden="true"></i>
             <%= post.Likes.length %>
             <% if (post.Likes.length > 0){%>

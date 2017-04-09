@@ -20,6 +20,10 @@ module.exports = {
           notEmpty: true
         }
       },
+      viewCount: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       UserId: {
         type: Sequelize.INTEGER,
         references: {

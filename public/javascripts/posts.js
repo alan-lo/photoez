@@ -13,14 +13,9 @@ $(document).ready(function() {
     }
   });
 
-  // $('.ajax-popup-link').magnificPopup({
-  //   type: 'image'
-  // });
-
   $('.post').on('mouseenter',function(event){
     $(this).children('.overlay-content').addClass('active').fadeIn();
   })
-
 
   $('.post').on('mouseleave',function(event){
     $(this).children('.overlay-content').removeClass('active').fadeOut();
