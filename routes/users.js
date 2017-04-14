@@ -21,7 +21,7 @@ const loginRoutes = function(passport){
   passport.authenticate('google',
     { scope: [
         'https://www.googleapis.com/auth/userinfo.profile',
-        'https://www.googleapis.com/auth/userinfo.email'] 
+        'https://www.googleapis.com/auth/userinfo.email']
   }));
 
   router.get('/auth/google/callback',
@@ -112,6 +112,29 @@ const loginRoutes = function(passport){
     res.redirect("/");
   });
 
+
+  router.put('/:id', loggedIn, function(req, res, next){
+      const {firstname, lastname, email, profile} = req.body
+      User.findOne({
+          where: {
+              id: req.user.id
+            }
+      }).then((user)=>{
+        if (user){
+          user.update({
+            firstName: firstname,
+            lastName: lastname,
+            email: email,
+            profile: profile
+          }).then(function(){
+             res.render('profile/profile', {user: user} );
+          });
+        }else{
+          res.redirect('/dashboard');
+        }
+      })
+  });
+
   router.get('/:id', loggedIn,function(req,res,next){
     User.findOne({
         where: {
@@ -125,7 +148,26 @@ const loginRoutes = function(passport){
       }
     })
   })
+
+
+  router.get('/:id/edit', loggedIn, function(req,res,next){
+    User.findOne({
+        where: {
+            id: req.user.id
+          }
+    }).then((user)=>{
+      if (user){
+        res.render('profile/edit', {user: user} );
+      }else{
+        res.redirect('/dashboard');
+      }
+    })
+  });
+
+
   return router;
 }
+
+
 
 module.exports = loginRoutes;

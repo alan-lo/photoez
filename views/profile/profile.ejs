@@ -2,7 +2,7 @@
 <% let canLike = false %>
 <%- include('../partials/header.ejs', {uploadImage, canLike}) %>
 <div id="profile" class="container">
-  <div class="row d-flex flex-row">
+  <div class="row">
     <div id="dashboard-profile" class="col-lg-6 d-flex flex-column justify-content-between">
       <div class="d-flex flex-column justify-content-center align-items-center">
         <div class="dashboard-profile-pic">
@@ -12,11 +12,8 @@
           <%= user.firstName%> <%= user.lastName %>
         </div>
       </div>
-      <div>
-          <a href="/dashboard"><button class="btn btn-primary">Dashboard</button></a>
-      </div>
     </div>
-    <div id="profile-info-container" class="col-lg-6">
+    <div id="profile-info-container" class="col-lg-6 d-flex flex-column justify-content-between">
       <div class="row">
         <div class="col-5 profile-info">
           Username:
@@ -47,6 +44,14 @@
         </div>
         <div class="col-12 profile-info">
           <%= user.profile %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 profile-info">
+          <!-- <form method="post" action="/users/<%= user.id%>/edit">
+            <input type="hidden" name="_method" value="put"> -->
+            <a href="/users/<%= user.id %>/edit"><button type="submit" class="btn btn-primary" name="edit">Edit</button></a>
+          <!-- </form> -->
         </div>
       </div>
     </div>

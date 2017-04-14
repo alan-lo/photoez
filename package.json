@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "npm rebuild node-sass",
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "debug": "nodemon --inspect ./bin/www",
     "s": "sequelize"
   },

@@ -4,6 +4,7 @@ let getAlbums = false;
 let initAlbums = false;
 
 $(document).ready(function() {
+
   $('.post a').magnificPopup({
     closeOnContentClick: false,
     type:'ajax',
@@ -11,7 +12,7 @@ $(document).ready(function() {
       enabled:true
     }
   });
-
+  
   $(document).on('submit','#comment-form', function(event){
     event.preventDefault();
     let comment = $(this).find('textarea').val();
@@ -22,6 +23,11 @@ $(document).ready(function() {
         }
       });
   })
+
+  $('.scroll').jscroll({
+    autoTrigger:true,
+    autoTriggerUntil: true
+  });
 
   $('.post').on('mouseenter',function(event){
     $(this).children('.overlay-content').addClass('active').fadeIn();

@@ -1,0 +1,60 @@
+<% let uploadImage = false %>
+<% let canLike = false %>
+<%- include('../partials/header.ejs', {uploadImage, canLike}) %>
+<div id="profile" class="container">
+  <div class="row d-flex flex-row">
+    <div id="dashboard-profile" class="col-lg-6 d-flex flex-column justify-content-between">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="dashboard-profile-pic">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+        <div class="name">
+          <%= user.firstName%> <%= user.lastName %>
+        </div>
+      </div>
+    </div>
+      <div id="profile-info-container" class="col-lg-6">
+        <form id="user-edit-form" method="post" action="/users/<%= user.id%>" class="d-flex flex-column justify-content-between">
+          <input type="hidden" name="_method" value="put">
+          <div class="row">
+          <div class="col-5 profile-info">
+            Username:
+          </div>
+          <div class="col-7 profile-info">
+            <%= user.userName %>
+          </div>
+          <div class="col-5 profile-info">
+             First Name:
+          </div>
+          <div class="col-7 profile-info">
+            <input type="text" name="firstname" class="form-control" value="<%= user.firstName %>">
+          </div>
+          <div class="col-5 profile-info">
+             Last Name:
+          </div>
+          <div class="col-7 profile-info">
+            <input type="text" name="lastname" class="form-control" value="<%= user.lastName %>">
+          </div>
+          <div class="col-5 profile-info">
+             Email:
+          </div>
+          <div class="col-7 profile-info">
+            <input type="text" name="email" class="form-control" value="<%= user.email %>">
+          </div>
+          <div class="col-12 profile-info">
+             Profile:
+          </div>
+          <div class="col-12 profile-info">
+            <textarea name="profile" class="form-control"><%= user.profile %></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 profile-info">
+            <button type="submit" class="btn btn-primary" name="save">Save</button>
+          </div>
+        </div>
+      </form>
+      </div>
+  </div>
+</div>
+<%- include('../partials/footer.ejs') %>

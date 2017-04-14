@@ -6083,18 +6083,16 @@ a:focus, a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
-  margin-bottom: 25px;
   min-height: 300px; }
 
 .dashboard-profile-pic {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 11.5rem;
+  font-size: 10.5rem;
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 10px solid #4E4E4E;
   overflow: hidden; }
@@ -6241,7 +6239,11 @@ footer {
 
 /*styles for profile page*/
 #profile {
-  margin-top: 10vh; }
+  margin-top: 50px;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 #dashboard-profile .name {
   color: white; }
@@ -6254,6 +6256,16 @@ footer {
 #album-container,
 #top-posts-container {
   margin-top: 2vh; }
+
+#user-edit-form {
+  height: 100%; }
+
+#user-edit-form input, #user-edit-form textarea {
+  background-color: #565656 !important;
+  color: white; }
+
+#user-edit-form textarea {
+  resize: none; }
 
 .profile-info {
   margin-bottom: 10px; }
@@ -6367,5 +6379,15 @@ textarea[name="comment"] {
   #main {
     border: 5px dotted #939393;
     padding: 35px; } }
+
+@media (min-width: 768px) {
+  .dashboard-profile-pic {
+    font-size: 11.5rem;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid #4E4E4E;
+    overflow: hidden; } }
 
 /*# sourceMappingURL=style.css.map */
