@@ -1,0 +1,19 @@
+#post-comment{
+  font-size: 0.9rem;
+}
+
+#comments-container{
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.comment-icons{
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
+
+textarea[name="comment"]{
+  font-size: 15px;
+  resize: none;
+  height: 100px;
+}

@@ -1,0 +1,12 @@
+#user-edit-form{
+  height:100%;
+}
+
+#user-edit-form input, #user-edit-form textarea{
+  background-color: $body-bg !important;
+  color: white;
+}
+
+#user-edit-form textarea{
+  resize: none;
+}

@@ -163,11 +163,7 @@ const loginRoutes = function(passport){
       }
     })
   });
-
-
   return router;
 }
-
-
 
 module.exports = loginRoutes;

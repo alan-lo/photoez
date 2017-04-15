@@ -1,0 +1,35 @@
+@import './folder';
+
+#albums{
+  height: 100%;
+}
+
+#viewAlbums,
+#myAlbums,
+#likedPosts {
+  color:white;
+  margin-top: 10px;
+}
+
+#myAlbums, #likedPosts{
+  margin-top: 5px;
+}
+
+#viewAlbums .col-3:hover,
+.album-title:hover{
+  text-shadow: 0 0 15px $glow-color;
+}
+
+#viewAlbums .col-3,
+#likedPosts{
+ margin-bottom: 5px;
+}
+
+.album-title{
+  color:$light-gray;
+  display: inline-block;
+}
+.album-title:hover{
+  color:white;
+  text-decoration: underline;
+}

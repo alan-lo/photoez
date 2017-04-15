@@ -1,0 +1,45 @@
+@import 'modules/all';
+@import 'footer/layout';
+@import 'header/layout';
+@import 'dashboard/layout';
+@import 'landing/layout';
+@import 'profile/layout';
+@import 'posts/layout';
+@import 'albums/layout';
+
+.glow,
+.title,
+.sub-title,
+#dashboard-profile,
+#profile,
+.nav-link:hover{
+  text-shadow: 0 0 15px $glow-color;
+ }
+
+ body {
+   padding: 0;
+   margin: 0;
+   font-family: 'Oswald','Open Sans', sans-serif !important;
+   box-sizing: border-box;
+ }
+
+ a {
+   text-decoration: none !important;
+ }
+
+ a:focus, a:hover {
+  color: white !important;
+  text-decoration: none !important;
+ }
+
+ #posts-container,
+ #likes-container,
+ #album-container,
+ #top-posts-container{
+ margin-top: 2vh;
+ }
+
+ .viewAlbum{
+   color:white;
+   margin-bottom: 20px;
+ }

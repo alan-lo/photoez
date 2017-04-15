@@ -2,6 +2,7 @@ $(document).ready(function() {
   $(document).on( 'click','.fa-heart-o', function(event){
     let link = $(this).parents('.overlay-content').siblings('a').attr('href');
     let postId = $(this).parent().next().find('.postId').html();
+    console.log('fa-heart-o');
     $.post(`/likes/${postId}`, {link: link, postId: postId} ,function(response, status){
       if (response.success){
         $(event.target).siblings('.likes-count').html(`${response.likes}`);
@@ -14,6 +15,7 @@ $(document).ready(function() {
   $(document).on( 'click','.fa-heart', function(event){
     let link = $(this).parents('.overlay-content').siblings('a').attr('href');
     let postId = $(this).parent().next().find('.postId').html();
+    console.log('fa-heart');
     $.ajax({
       url: `/likes/${postId}`,
       type: 'delete',

@@ -1,0 +1,24 @@
+@import './profile-pic';
+@import './profile-info';
+@import './edit-user-form';
+
+#profile{
+ margin-top: 50px;
+ min-height: 80vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+#profile-pic-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+#profile-pic-container .name,
+#profile-info-container{
+  color:white;
+}

@@ -1,0 +1,14 @@
+@import './feature-btn';
+@import './profile-pic';
+
+#dashboard-profile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+#dashboard-profile .name{
+  color:white;
+}

@@ -1,0 +1,14 @@
+.profile-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10.5rem;
+  @include circle(200px, 200px, $medium-gray);
+}
+
+@media (min-width: 768px){
+  .profile-pic{
+    font-size: 11.5rem;
+    @include circle(300px, 300px, $medium-gray);
+  }
+}

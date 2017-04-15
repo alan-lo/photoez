@@ -1,0 +1,101 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow-m($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $size $color;
+        -moz-box-shadow:inset $top $left $blur $size $color;
+        box-shadow:inset $top $left $blur $size $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin circle($lens-width, $lens-height, $color){
+  position: relative;
+  width:$lens-width;
+  height:$lens-height;
+  border-radius: 50%;
+  border: 10px solid $medium-gray;
+  overflow: hidden;
+}
+
+@mixin inner-circle($lens-width, $lens-height, $color){
+  $lens-l-margin: -($lens-width - 50px) /2;
+  overflow: hidden;
+  position: absolute;
+  top:50%;
+  left:50%;
+  width: $lens-width - 50px;
+  height:$lens-height - 50px;
+  border-radius: 50%;
+  border: 10px solid $medium-gray;
+  margin: $lens-l-margin 0px 0px $lens-l-margin;
+}
+
+@include keyframes(fade-in) {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@include keyframes(pulse) {
+   0% { transform: scale(1); }
+ 	50% { transform: scale(1.3); }
+ 	100% { transform: scale(1); }
+ }
+
+ @mixin font-source($size: false, $colour: false, $weight: false,  $lh: false) {
+     font-family: 'Oswald', "sans-serifs", "Helvetica";
+     @if $size { font-size: $size; }
+     @if $colour { color: $colour; }
+     @if $weight { font-weight: $weight; }
+     @if $lh { line-height: $lh; }
+ }
+
+ @mixin transition($args...) {
+   -webkit-transition: $args;
+   -moz-transition: $args;
+   -ms-transition: $args;
+   transition: $args;
+ }
+
+ @mixin opacity($opacity) {
+   opacity: $opacity;
+   $opacity-ie: $opacity * 100;
+   filter: alpha(opacity=$opacity-ie); //IE8
+ }
+
+ @mixin filter($filter-type,$filter-amount) {
+   -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+   -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+   -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+   filter: $filter-type+unquote('(#{$filter-amount})');
+ }

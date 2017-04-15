@@ -5,8 +5,8 @@
     <title>PhotoEz</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/mystyle.css'/>
     <link rel="stylesheet" href="/stylesheets/magnific-popup.css">
     <script src="/javascripts/jquery-3.2.0.min.js"></script>
     <script src="/javascripts/tether.min.js"></script>
@@ -18,7 +18,6 @@
     <script src="/javascripts/posts.js"></script>
     <script src="/javascripts/jquery.jscroll.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/bootstrap-social.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
   </head>
   <body>
   <% if (login) { %>
@@ -52,7 +51,7 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <span class="nav-link"><a href="/users/<%= user.id %>">Welcome, &nbsp;<%= user.firstName %></a></span>
+            <a class="nav-link" href="/users/<%= user.id %>">Welcome, &nbsp;<%= user.firstName %></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/users/logout">Sign out</a>
