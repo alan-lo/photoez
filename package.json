@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "npm rebuild node-sass",
-    "start": "nodemon ./bin/www",
-    "debug": "nodemon --inspect ./bin/www",
+    "start": "node ./bin/www",
+    "debug": "node --inspect ./bin/www",
     "s": "sequelize"
   },
   "dependencies": {
